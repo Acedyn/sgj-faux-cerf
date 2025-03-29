@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://c450qi8ssgmge"]
+
+[ext_resource type="Theme" uid="uid://b1hrtwt8x08fy" path="res://speech/speech_theme.tres" id="1_bd0qd"]
+[ext_resource type="Script" uid="uid://c71adsqm8snx2" path="res://speech/character_speech.gd" id="1_bte7y"]
+
+[node name="CharacterSpeech" type="VBoxContainer"]
+offset_right = 537.0
+offset_bottom = 436.0
+script = ExtResource("1_bte7y")
+speech_text = "hello ! Comment ça va ?"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_bd0qd")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="SpeechText" type="HFlowContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label1" type="Label" parent="PanelContainer/MarginContainer/SpeechText"]
+layout_mode = 2
+theme = ExtResource("1_bd0qd")
+text = "Hello"
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/SpeechText"]
+layout_mode = 2
+theme = ExtResource("1_bd0qd")
+text = "Hello"
+
+[node name="Label3" type="Label" parent="PanelContainer/MarginContainer/SpeechText"]
+layout_mode = 2
+theme = ExtResource("1_bd0qd")
+text = "Hello"
+
+[node name="Label4" type="Label" parent="PanelContainer/MarginContainer/SpeechText"]
+layout_mode = 2
+theme = ExtResource("1_bd0qd")
+text = "Hello"
+
+[node name="Label5" type="Label" parent="PanelContainer/MarginContainer/SpeechText"]
+layout_mode = 2
+theme = ExtResource("1_bd0qd")
+text = "Hello"
+
+[node name="Label6" type="Label" parent="PanelContainer/MarginContainer/SpeechText"]
+layout_mode = 2
+theme = ExtResource("1_bd0qd")
+text = "Hello"
