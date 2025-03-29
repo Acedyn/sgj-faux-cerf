@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c450qi8ssgmge"]
+[gd_scene load_steps=4 format=3 uid="uid://c450qi8ssgmge"]
 
 [ext_resource type="Theme" uid="uid://b1hrtwt8x08fy" path="res://speech/speech_theme.tres" id="1_bd0qd"]
 [ext_resource type="Script" uid="uid://c71adsqm8snx2" path="res://speech/character_speech.gd" id="1_bte7y"]
+[ext_resource type="PackedScene" uid="uid://b47nc7augggcg" path="res://speech/speech_word.tscn" id="3_nrl5j"]
 
 [node name="CharacterSpeech" type="VBoxContainer"]
 offset_right = 537.0
 offset_bottom = 436.0
 script = ExtResource("1_bte7y")
-speech_text = "hello ! Comment ça va ?"
+speech_text = "yo "
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -19,32 +20,14 @@ layout_mode = 2
 [node name="SpeechText" type="HFlowContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label1" type="Label" parent="PanelContainer/MarginContainer/SpeechText"]
+[node name="SpeechWord" parent="PanelContainer/MarginContainer/SpeechText" instance=ExtResource("3_nrl5j")]
 layout_mode = 2
-theme = ExtResource("1_bd0qd")
-text = "Hello"
 
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/SpeechText"]
+[node name="SpeechWord2" parent="PanelContainer/MarginContainer/SpeechText" instance=ExtResource("3_nrl5j")]
 layout_mode = 2
-theme = ExtResource("1_bd0qd")
-text = "Hello"
 
-[node name="Label3" type="Label" parent="PanelContainer/MarginContainer/SpeechText"]
+[node name="SpeechWord3" parent="PanelContainer/MarginContainer/SpeechText" instance=ExtResource("3_nrl5j")]
 layout_mode = 2
-theme = ExtResource("1_bd0qd")
-text = "Hello"
 
-[node name="Label4" type="Label" parent="PanelContainer/MarginContainer/SpeechText"]
+[node name="SpeechWord4" parent="PanelContainer/MarginContainer/SpeechText" instance=ExtResource("3_nrl5j")]
 layout_mode = 2
-theme = ExtResource("1_bd0qd")
-text = "Hello"
-
-[node name="Label5" type="Label" parent="PanelContainer/MarginContainer/SpeechText"]
-layout_mode = 2
-theme = ExtResource("1_bd0qd")
-text = "Hello"
-
-[node name="Label6" type="Label" parent="PanelContainer/MarginContainer/SpeechText"]
-layout_mode = 2
-theme = ExtResource("1_bd0qd")
-text = "Hello"

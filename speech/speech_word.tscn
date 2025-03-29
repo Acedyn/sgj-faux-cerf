@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b47nc7augggcg"]
+
+[ext_resource type="Script" uid="uid://crl1ybjsnmr7b" path="res://speech/speech_word.gd" id="1_nvj4f"]
+
+[node name="SpeechWord" type="Button"]
+offset_right = 34.0
+offset_bottom = 23.0
+text = "Text"
+script = ExtResource("1_nvj4f")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

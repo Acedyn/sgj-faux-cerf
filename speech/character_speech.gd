@@ -1,6 +1,7 @@
 extends VBoxContainer
 
 @onready var speech_container: HFlowContainer = $PanelContainer/MarginContainer/SpeechText
+var speech_word_scene: PackedScene = preload("res://speech/speech_word.tscn")
 
 @export_group("Speech Properties")
 @export var speech_text: String:
@@ -25,6 +26,6 @@ func create_speech_labels(text: String):
 			continue
 			
 		# Create and instantiate the label node
-		var word_node = Label.new()
+		var word_node = speech_word_scene.instantiate()
 		word_node.text = word
 		speech_container.add_child(word_node)

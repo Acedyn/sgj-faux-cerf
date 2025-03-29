@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="sgj-03-2025"
+run/main_scene="uid://c2svv3i3j4sxn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalSignals="*res://global_signals.gd"
 
 [display]
 
