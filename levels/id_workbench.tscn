@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0j3ifdf50jax"]
+[gd_scene load_steps=4 format=3 uid="uid://d0j3ifdf50jax"]
 
 [ext_resource type="Script" uid="uid://drspdww5qvilj" path="res://levels/document_checker.gd" id="1_hyirq"]
 [ext_resource type="Texture2D" uid="uid://ekurwj45p73" path="res://levels/id.png" id="1_oafie"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyirq"]
+bg_color = Color(0, 0, 0, 0.0784314)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="IDWorkbench" type="Control"]
 layout_mode = 3
@@ -22,40 +29,61 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="nom" type="Control" parent="Zones"]
-anchors_preset = 0
-offset_left = 317.0
-offset_top = 91.0
-offset_right = 457.0
-offset_bottom = 118.0
+[node name="nom" type="Panel" parent="Zones"]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 92.0
+offset_right = 532.0
+offset_bottom = 119.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hyirq")
 
-[node name="prenom" type="Control" parent="Zones"]
-anchors_preset = 0
-offset_left = 355.0
-offset_top = 136.0
-offset_right = 495.0
-offset_bottom = 163.0
+[node name="prénom" type="Panel" parent="Zones"]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 145.0
+offset_right = 532.0
+offset_bottom = 172.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hyirq")
 
-[node name="date_naissance" type="Control" parent="Zones"]
-anchors_preset = 0
-offset_left = 488.0
-offset_top = 182.0
-offset_right = 628.0
-offset_bottom = 209.0
+[node name="regime_alimentaire" type="Panel" parent="Zones"]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 198.0
+offset_right = 532.0
+offset_bottom = 225.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hyirq")
 
-[node name="espèce" type="Control" parent="Zones"]
-anchors_preset = 0
-offset_left = 351.0
-offset_top = 230.0
-offset_right = 491.0
-offset_bottom = 257.0
+[node name="famille" type="Panel" parent="Zones"]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 250.0
+offset_right = 532.0
+offset_bottom = 277.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hyirq")
 
-[node name="pélage" type="Control" parent="Zones"]
-anchors_preset = 0
-offset_left = 352.0
-offset_top = 325.0
-offset_right = 492.0
-offset_bottom = 352.0
+[node name="espèce" type="Panel" parent="Zones"]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 305.0
+offset_right = 532.0
+offset_bottom = 332.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hyirq")
+
+[node name="genre" type="Panel" parent="Zones"]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 357.0
+offset_right = 532.0
+offset_bottom = 384.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hyirq")
+
+[node name="num" type="Panel" parent="Zones"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 392.0
+offset_right = 433.0
+offset_bottom = 419.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hyirq")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
