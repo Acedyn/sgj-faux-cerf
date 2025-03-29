@@ -14,6 +14,7 @@ color = Color(0, 0, 0, 0.313726)
 polygon = PackedVector2Array(771, -40, 155, -51, 14, 222, 9, 239, 15, 253, 27, 267, 51, 269, 512, 271, 943, 271, 958, 266, 968, 256, 971, 239, 963, 222)
 
 [node name="IDTexture" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 713.0
 offset_bottom = 435.0
 texture = ExtResource("1_oafie")

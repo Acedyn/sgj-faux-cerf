@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2svv3i3j4sxn"]
+
+[ext_resource type="Texture2D" uid="uid://8me4xnlh8tfy" path="res://contact/background.png" id="1_jj318"]
+[ext_resource type="Texture2D" uid="uid://bh0b3cqbv2gv1" path="res://contact/perso.png" id="1_lor1l"]
+[ext_resource type="Texture2D" uid="uid://bm0ba60efbyh7" path="res://contact/decor.png" id="1_q75l0"]
+[ext_resource type="PackedScene" uid="uid://c450qi8ssgmge" path="res://speech/character_speech.tscn" id="3_jj318"]
+[ext_resource type="PackedScene" uid="uid://d0j3ifdf50jax" path="res://levels/id_workbench.tscn" id="4_nw3mx"]
+[ext_resource type="Theme" uid="uid://b1hrtwt8x08fy" path="res://speech/speech_theme.tres" id="5_nhl12"]
+[ext_resource type="Script" uid="uid://dg177okdt05xo" path="res://levels/level_manager.gd" id="7_nw3mx"]
+
+[node name="CharacterContact" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BackgroundTexture" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_jj318")
+expand_mode = 1
+
+[node name="CharacterTexture" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_lor1l")
+expand_mode = 1
+
+[node name="DecorTexture" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_q75l0")
+expand_mode = 1
+
+[node name="CharacterSpeech" parent="Control" instance=ExtResource("3_jj318")]
+layout_mode = 0
+offset_left = 1338.0
+offset_top = 39.0
+offset_right = 1830.0
+offset_bottom = 554.0
+speech_text = "Hello wod !! Hw areyu ?odfjgopsdifjgopsjdfog dfgjoipdfogd"
+
+[node name="LevelManager" type="Control" parent="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("5_nhl12")
+script = ExtResource("7_nw3mx")
+
+[node name="IDTexture" parent="Control/LevelManager" instance=ExtResource("4_nw3mx")]
+layout_mode = 0
+offset_left = 587.0
+offset_top = 493.0
+offset_right = 1300.0
+offset_bottom = 928.0

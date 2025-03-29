@@ -26,6 +26,7 @@ func create_speech_labels(text: String):
 			continue
 			
 		# Create and instantiate the label node
+		await get_tree().create_timer(0.1).timeout
 		var word_node = speech_word_scene.instantiate()
 		word_node.text = word
 		speech_container.add_child(word_node)

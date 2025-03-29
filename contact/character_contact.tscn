@@ -1,12 +1,180 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2svv3i3j4sxn"]
+[gd_scene load_steps=14 format=3 uid="uid://c2svv3i3j4sxn"]
 
 [ext_resource type="Texture2D" uid="uid://8me4xnlh8tfy" path="res://contact/background.png" id="1_jj318"]
 [ext_resource type="Texture2D" uid="uid://bh0b3cqbv2gv1" path="res://contact/perso.png" id="1_lor1l"]
 [ext_resource type="Texture2D" uid="uid://bm0ba60efbyh7" path="res://contact/decor.png" id="1_q75l0"]
 [ext_resource type="PackedScene" uid="uid://c450qi8ssgmge" path="res://speech/character_speech.tscn" id="3_jj318"]
-[ext_resource type="PackedScene" uid="uid://d0j3ifdf50jax" path="res://workbench/id_workbench.tscn" id="4_nw3mx"]
+[ext_resource type="PackedScene" uid="uid://d0j3ifdf50jax" path="res://levels/id_workbench.tscn" id="4_nw3mx"]
 [ext_resource type="Theme" uid="uid://b1hrtwt8x08fy" path="res://speech/speech_theme.tres" id="5_nhl12"]
-[ext_resource type="Script" uid="uid://dg177okdt05xo" path="res://workbench/level_manager.gd" id="7_nw3mx"]
+[ext_resource type="Script" uid="uid://dg177okdt05xo" path="res://levels/level_manager.gd" id="7_nw3mx"]
+
+[sub_resource type="Animation" id="Animation_nw3mx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterContainer/CharacterTexture:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterContainer/CharacterTexture:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-400, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DocumentContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DocumentContainer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(800, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x1xsh"]
+resource_name = "character_animation_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterContainer/CharacterTexture:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.73208, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterContainer/CharacterTexture:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(3.24901, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(400, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hj4nv"]
+resource_name = "character_animation_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterContainer/CharacterTexture:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterContainer/CharacterTexture:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.450625, 0.120742),
+"update": 0,
+"values": [Vector2(-400, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_we84g"]
+resource_name = "doc_animation_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DocumentContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.297302, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DocumentContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.267943, 1),
+"update": 0,
+"values": [Vector2(0, 600), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_c3q2n"]
+resource_name = "doc_animation_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DocumentContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2.29739, 0.297302),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DocumentContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(4, 0.267943),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 600)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4d1mq"]
+_data = {
+&"RESET": SubResource("Animation_nw3mx"),
+&"character_animation_in": SubResource("Animation_hj4nv"),
+&"character_animation_out": SubResource("Animation_x1xsh"),
+&"doc_animation_in": SubResource("Animation_we84g"),
+&"doc_animation_out": SubResource("Animation_c3q2n")
+}
 
 [node name="CharacterContact" type="Node2D"]
 
@@ -23,28 +191,6 @@ offset_bottom = 1080.0
 texture = ExtResource("1_jj318")
 expand_mode = 1
 
-[node name="CharacterTexture" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("1_lor1l")
-expand_mode = 1
-
-[node name="DecorTexture" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("1_q75l0")
-expand_mode = 1
-
-[node name="CharacterSpeech" parent="Control" instance=ExtResource("3_jj318")]
-layout_mode = 0
-offset_left = 1338.0
-offset_top = 39.0
-offset_right = 1830.0
-offset_bottom = 554.0
-speech_text = "Hello wod !! Hw areyu ?odfjgopsdifjgopsjdfog dfgjoipdfogd"
-
 [node name="LevelManager" type="Control" parent="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -53,9 +199,50 @@ offset_bottom = 40.0
 theme = ExtResource("5_nhl12")
 script = ExtResource("7_nw3mx")
 
-[node name="IDTexture" parent="Control/LevelManager" instance=ExtResource("4_nw3mx")]
+[node name="CharacterContainer" type="Control" parent="Control/LevelManager"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CharacterTexture" type="TextureRect" parent="Control/LevelManager/CharacterContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -400.0
+offset_right = 1520.0
+offset_bottom = 1080.0
+texture = ExtResource("1_lor1l")
+expand_mode = 1
+
+[node name="DecorTexture" type="TextureRect" parent="Control/LevelManager"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_q75l0")
+expand_mode = 1
+
+[node name="DocumentContainer" type="Control" parent="Control/LevelManager"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 0
+offset_left = 800.0
+offset_right = 840.0
+offset_bottom = 40.0
+
+[node name="IDTexture" parent="Control/LevelManager/DocumentContainer" instance=ExtResource("4_nw3mx")]
 layout_mode = 0
 offset_left = 587.0
 offset_top = 493.0
 offset_right = 1300.0
 offset_bottom = 928.0
+
+[node name="CharacterSpeech" parent="Control/LevelManager" instance=ExtResource("3_jj318")]
+layout_mode = 0
+offset_left = 1338.0
+offset_top = 39.0
+offset_right = 1830.0
+offset_bottom = 554.0
+speech_text = "Hello je m'appelle Simon, qmgjsopifgsdrtop, "
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/LevelManager"]
+libraries = {
+&"": SubResource("AnimationLibrary_4d1mq")
+}
