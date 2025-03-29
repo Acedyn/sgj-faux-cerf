@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bh0b3cqbv2gv1" path="res://contact/perso.png" id="1_lor1l"]
 [ext_resource type="Texture2D" uid="uid://bm0ba60efbyh7" path="res://contact/decor.png" id="1_q75l0"]
 [ext_resource type="PackedScene" uid="uid://c450qi8ssgmge" path="res://speech/character_speech.tscn" id="3_jj318"]
-[ext_resource type="Texture2D" uid="uid://ekurwj45p73" path="res://contact/id.png" id="4_nw3mx"]
-[ext_resource type="Script" uid="uid://dg177okdt05xo" path="res://contact/hovered_word.gd" id="5_e4yag"]
+[ext_resource type="PackedScene" uid="uid://d0j3ifdf50jax" path="res://workbench/id_workbench.tscn" id="4_nw3mx"]
 [ext_resource type="Theme" uid="uid://b1hrtwt8x08fy" path="res://speech/speech_theme.tres" id="5_nhl12"]
+[ext_resource type="Script" uid="uid://dg177okdt05xo" path="res://workbench/level_manager.gd" id="7_nw3mx"]
 
 [node name="CharacterContact" type="Node2D"]
 
@@ -37,27 +37,25 @@ offset_bottom = 1080.0
 texture = ExtResource("1_q75l0")
 expand_mode = 1
 
-[node name="IDTexture" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_left = 681.0
-offset_top = 617.0
-offset_right = 1412.0
-offset_bottom = 1028.0
-texture = ExtResource("4_nw3mx")
-expand_mode = 1
-
 [node name="CharacterSpeech" parent="Control" instance=ExtResource("3_jj318")]
 layout_mode = 0
 offset_left = 1338.0
 offset_top = 39.0
 offset_right = 1830.0
 offset_bottom = 554.0
-speech_text = "Hello world !! How are you ? odfjgopsdifjgopsjdfog dfgjoipdfoigd"
+speech_text = "Hello wod !! Hw areyu ?odfjgopsdifjgopsjdfog dfgjoipdfogd"
 
-[node name="HoveredWords" type="Control" parent="Control"]
+[node name="LevelManager" type="Control" parent="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme = ExtResource("5_nhl12")
-script = ExtResource("5_e4yag")
+script = ExtResource("7_nw3mx")
+
+[node name="IDTexture" parent="Control/LevelManager" instance=ExtResource("4_nw3mx")]
+layout_mode = 0
+offset_left = 587.0
+offset_top = 493.0
+offset_right = 1300.0
+offset_bottom = 928.0

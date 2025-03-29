@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0j3ifdf50jax"]
+
+[ext_resource type="Texture2D" uid="uid://ekurwj45p73" path="res://contact/id.png" id="1_oafie"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 717.0
+offset_bottom = 438.0
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-108, 327)
+color = Color(0, 0, 0, 0.313726)
+polygon = PackedVector2Array(771, -40, 155, -51, 14, 222, 9, 239, 15, 253, 27, 267, 51, 269, 512, 271, 943, 271, 958, 266, 968, 256, 971, 239, 963, 222)
+
+[node name="IDTexture" type="TextureRect" parent="."]
+offset_right = 713.0
+offset_bottom = 435.0
+texture = ExtResource("1_oafie")
+expand_mode = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
