@@ -1,6 +1,14 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b1hrtwt8x08fy"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://b1hrtwt8x08fy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tw5hh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cpc8o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xwp71"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wt5hm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dvn81"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wt5hm"]
 bg_color = Color(0.929715, 0.929715, 0.929715, 1)
@@ -12,9 +20,14 @@ corner_radius_bottom_left = 10
 [resource]
 Button/colors/font_color = Color(0.0885601, 0.0885598, 0.0885599, 1)
 Button/colors/font_focus_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
-Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+Button/colors/font_pressed_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
 Button/font_sizes/font_size = 30
+Button/styles/focus = SubResource("StyleBoxEmpty_tw5hh")
+Button/styles/hover = SubResource("StyleBoxFlat_cpc8o")
+Button/styles/hover_pressed = SubResource("StyleBoxEmpty_xwp71")
 Button/styles/normal = SubResource("StyleBoxEmpty_wt5hm")
+Button/styles/pressed = SubResource("StyleBoxEmpty_dvn81")
 Label/colors/font_color = Color(0.226707, 0.226707, 0.226707, 1)
 Label/font_sizes/font_size = 30
 MarginContainer/constants/margin_bottom = 10

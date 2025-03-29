@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c2svv3i3j4sxn"]
+[gd_scene load_steps=15 format=3 uid="uid://c2svv3i3j4sxn"]
 
 [ext_resource type="Texture2D" uid="uid://8me4xnlh8tfy" path="res://contact/background.png" id="1_jj318"]
 [ext_resource type="Texture2D" uid="uid://bh0b3cqbv2gv1" path="res://contact/perso.png" id="1_lor1l"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d0j3ifdf50jax" path="res://levels/id_workbench.tscn" id="4_nw3mx"]
 [ext_resource type="Theme" uid="uid://b1hrtwt8x08fy" path="res://speech/speech_theme.tres" id="5_nhl12"]
 [ext_resource type="Script" uid="uid://dg177okdt05xo" path="res://levels/level_manager.gd" id="7_nw3mx"]
+[ext_resource type="Texture2D" uid="uid://bknc75sfpjob3" path="res://contact/button_finish.png" id="8_x1xsh"]
 
 [sub_resource type="Animation" id="Animation_nw3mx"]
 length = 0.001
@@ -137,7 +138,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(0.267943, 1),
 "update": 0,
-"values": [Vector2(0, 600), Vector2(0, 0)]
+"values": [Vector2(0, 600), Vector2(0, -30)]
 }
 
 [sub_resource type="Animation" id="Animation_c3q2n"]
@@ -164,7 +165,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(4, 0.267943),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 600)]
+"values": [Vector2(0, -30), Vector2(0, 600)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4d1mq"]
@@ -207,8 +208,7 @@ offset_bottom = 40.0
 [node name="CharacterTexture" type="TextureRect" parent="Control/LevelManager/CharacterContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = -400.0
-offset_right = 1520.0
+offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("1_lor1l")
 expand_mode = 1
@@ -223,26 +223,37 @@ expand_mode = 1
 [node name="DocumentContainer" type="Control" parent="Control/LevelManager"]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 0
-offset_left = 800.0
-offset_right = 840.0
-offset_bottom = 40.0
+offset_top = 600.0
+offset_right = 40.0
+offset_bottom = 640.0
 
 [node name="IDTexture" parent="Control/LevelManager/DocumentContainer" instance=ExtResource("4_nw3mx")]
 layout_mode = 0
-offset_left = 587.0
+offset_left = 623.0
 offset_top = 493.0
-offset_right = 1300.0
+offset_right = 1336.0
 offset_bottom = 928.0
 
 [node name="CharacterSpeech" parent="Control/LevelManager" instance=ExtResource("3_jj318")]
 layout_mode = 0
-offset_left = 1338.0
+offset_left = 1370.0
 offset_top = 39.0
-offset_right = 1830.0
-offset_bottom = 554.0
+offset_right = 1872.0
+offset_bottom = 576.0
 speech_text = "Hello je m'appelle Simon, qmgjsopifgsdrtop, "
+
+[node name="TextureButton" type="TextureButton" parent="Control/LevelManager"]
+layout_mode = 0
+offset_left = 736.0
+offset_top = 900.0
+offset_right = 1214.0
+offset_bottom = 1092.0
+texture_normal = ExtResource("8_x1xsh")
+stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control/LevelManager"]
 libraries = {
 &"": SubResource("AnimationLibrary_4d1mq")
 }
+
+[connection signal="pressed" from="Control/LevelManager/TextureButton" to="Control/LevelManager" method="_on_texture_button_pressed"]
