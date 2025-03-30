@@ -1,0 +1,9 @@
+Index,Manchette
+0,"Nous avons gagné ! L'action commence maintenant ! J'ai nommé Elan Musqué à la tête de l'administration postale. Pour la sécurité de tous, vos demandes et  messages seront validés par les autorités."
+1,"Les ours ont trop longtemps volé notre miel, occupé les plus belles zones de notre bosquet. Ces ominivores mangent à tous les rateliers ! Ils changent ou ils sont expulsés !"
+2,"D'après les grenouilles, le changement climatique fait monter les températures et elles deviennent toutes femelles. Menteuses ! Elles ne veulent vivre qu'entre femmes, bannir les hommes. Battons-nous contre cette ségrégation !"
+3,Le bosquet va mal. Vous manquez d'espoir. Rendons le bosquet brillant de nouveau ! La noirceur et le brun sont interdits : dans l'âme ou sur le pelage.
+4,"Complot économique des mammifères contre Elan Musqué. Désormais, il leur est interdit de participer à toute compétition représentant notre bel état."
+5,"Président Duck victime d'un attentat carnivore! Les fées ont veillé sur lui, gloire à elles ! L'ennemi est partout. Certains ne veulent pas la grandeur du bosquet. Un ennemi du président Duck est un ennemi du bosquet."
+6,"Depuis trop longtemps, les renards et les oiseaux sont en guerre. Je vais régler ça ! Les oiseaux doivent voler en paix, ne plus se faire voler leurs enfants."
+7,J'ai demandé aux ours de parler aux renards. Ils sont vaincus. La guerre est finie. Merci aux ours. Gloire au bosquet !
