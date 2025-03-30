@@ -17,7 +17,7 @@ extends Control
 var levels: Array[Dictionary]
 var current_level: Dictionary
 var level_number = 0;
-var manchette_number = -1;
+@export var manchette_number = -1;
 
 func _ready() -> void:
 	GlobalSignals.word_drag_in.connect(_on_word_drag_in)

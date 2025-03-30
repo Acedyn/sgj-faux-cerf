@@ -5,6 +5,7 @@
 
 [sub_resource type="SystemFont" id="SystemFont_vjyys"]
 font_names = PackedStringArray("Verdana")
+subpixel_positioning = 0
 oversampling = 3.0
 
 [sub_resource type="Theme" id="Theme_eqxg3"]
