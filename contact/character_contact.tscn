@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bh0b3cqbv2gv1" path="res://contact/perso.png" id="1_lor1l"]
 [ext_resource type="Texture2D" uid="uid://bm0ba60efbyh7" path="res://contact/decor.png" id="1_q75l0"]
 [ext_resource type="PackedScene" uid="uid://c450qi8ssgmge" path="res://speech/character_speech.tscn" id="3_jj318"]
-[ext_resource type="PackedScene" uid="uid://d0j3ifdf50jax" path="res://levels/id_workbench.tscn" id="4_nw3mx"]
+[ext_resource type="PackedScene" uid="uid://d0j3ifdf50jax" path="res://levels/target_cni.tscn" id="4_nw3mx"]
 [ext_resource type="Theme" uid="uid://b1hrtwt8x08fy" path="res://speech/speech_theme.tres" id="5_nhl12"]
 [ext_resource type="Script" uid="uid://dg177okdt05xo" path="res://levels/level_manager.gd" id="7_nw3mx"]
 [ext_resource type="Texture2D" uid="uid://ckbuvei5dot36" path="res://levels/passed.png" id="8_we84g"]
@@ -247,6 +247,7 @@ _data = {
 [sub_resource type="SystemFont" id="SystemFont_x1xsh"]
 font_names = PackedStringArray("Verdana")
 font_weight = 900
+subpixel_positioning = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6t8y8"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -685,6 +686,31 @@ layout_mode = 0
 offset_bottom = 80.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qcico")
 
+[node name="ScoreContainer" type="MarginContainer" parent="Control/LevelManager/ResultContainer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -961.5
+offset_top = -152.0
+offset_right = 961.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="Control/LevelManager/ResultContainer/ScoreContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 1, 0.0705882, 1)
+theme_override_fonts/font = SubResource("SystemFont_x1xsh")
+theme_override_font_sizes/font_size = 42
+text = "Analyse en cours:"
+horizontal_alignment = 1
+
 [node name="ContinueButton" type="TextureButton" parent="Control/LevelManager/ResultContainer"]
 layout_mode = 1
 anchors_preset = 7
@@ -819,7 +845,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="IDTexture" parent="Control/LevelManager/DocumentContainer" instance=ExtResource("4_nw3mx")]
+[node name="DocumentTarget" parent="Control/LevelManager/DocumentContainer" instance=ExtResource("4_nw3mx")]
 layout_mode = 0
 offset_left = 623.0
 offset_top = 493.0

@@ -6,7 +6,6 @@ extends ColorRect
 @onready var manchette_texture: TextureRect = $MarginContainer/TextureRect
 @onready var continue_button: TextureButton = $ContinueButton
 var manchettes: Array[Dictionary] = []
-var manchette_index: int = 0
 
 func _ready() -> void:
 	visible = false
@@ -31,7 +30,6 @@ func show_next_manchette():
 	await animation_player.animation_finished
 	await continue_button.pressed
 	await hide_manchette()
-	manchette_index += 1
 
 func hide_manchette():
 	animation_player.play("manchette_out")

@@ -1,19 +1,20 @@
 class_name HoveredWord
 extends Control
 
-@onready var current_target: Control = $DocumentContainer/IDTexture
+@onready var current_target: DocumentChecker = $DocumentContainer/DocumentTarget
 @onready var character_speech: VBoxContainer = $CharacterSpeech
 @onready var words_container: Control = $WordsContainer
-@onready var result_container: Control = $ResultContainer
+@onready var result_container: ResultContainer = $ResultContainer
 @onready var manchette_container: ManchetteContainer = $ManchetteContainer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var levels: Array[Dictionary]
 var current_level: Dictionary
 var level_number = 0;
+var manchette_number = -1;
 
 func _ready() -> void:
 	GlobalSignals.word_drag_in.connect(_on_word_drag_in)
-	var levels_file = FileAccess.open("res://levels/levels.txt", FileAccess.READ)
+	var levels_file = FileAccess.open("res://levels/discours.txt", FileAccess.READ)
 	var entries = levels_file.get_csv_line()
 	while !levels_file.eof_reached():
 		var level = {}
@@ -30,7 +31,7 @@ func _ready() -> void:
 	
 func _on_word_drag_in(node: SpeechWord):
 	var duplicated_word = node.duplicate()
-	duplicated_word.text = node.text.lstrip(",.!:?").rstrip(",.!:?")
+	duplicated_word.text = node.text.lstrip(",.!:?\n").rstrip(",.!:?\n")
 	duplicated_word.state = SpeechWord.WordState.SELECTED
 	duplicated_word.source = node
 	node.state = SpeechWord.WordState.HIDDEN
@@ -53,25 +54,34 @@ func select_level():
 	# Show a manchette every 3 levels
 	if level_number % 3 == 0:
 		await manchette_container.show_next_manchette()
+		manchette_number += 1
 		
 	# Start the next level
 	animation_player.play("character_animation_in")
-	var level = levels[randi() % levels.size()]
+	# Filter out the speeches that are not available yet according to the
+	# current manchette
+	var filtered_level = levels.filter(func(x): return int(x["Manchette"]) <= manchette_number)
+	var level = filtered_level[randi() % filtered_level.size()]
 	current_level = level
 	level_number += 1
 	await animation_player.animation_finished
-	character_speech.speech_text = level["texte"]
+	character_speech.speech_text = level["Dialogue"]
+	current_target.initialize_values(current_level["Mots du document"].split(";"))
 	animation_player.play("doc_animation_in")
+	await animation_player.animation_finished
 
 
-func compute_score(result: Dictionary):
+func compute_score(result: Array[String]):
 	var score = 0
-	for key in result:
-		if key not in current_level:
-			print("KEY " + key + " MISSING")
-			score += 1
-			continue
-		if current_level[key] == result[key]:
+	var answer: Array[String] = []
+	answer.assign(current_level["Bons mots"].split(";"))
+	if answer.size() != result.size():
+		print("ERROR: MISSMATCH VALUE COUNT IN ANSWER: " + str(answer))
+		return score
+		
+	for value_index in result.size():
+		print(result[value_index].to_lower() + " - " + str(Array(answer[value_index].split(",")).map(func(x: String): return x.to_lower())))
+		if result[value_index].to_lower() in Array(answer[value_index].split(",")).map(func(x: String): return x.to_lower()):
 			score += 1
 			
 	return float(score) / result.size()
@@ -87,4 +97,4 @@ func _on_validate_button_pressed() -> void:
 
 func _on_continue_button_pressed() -> void:
 	await result_container.hide_score()
-	select_level()
+	await select_level()
