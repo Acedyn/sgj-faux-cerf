@@ -60,7 +60,7 @@ func select_level():
 		
 	# Show a manchette every 3 levels
 	if level_number % 3 == 0:
-		await manchette_container.show_next_manchette()
+		await manchette_container.show_next_manchette(manchette_number+1)
 		manchette_number += 1
 		
 	# Start the next level
@@ -73,11 +73,9 @@ func select_level():
 	level_number += 1
 	await animation_player.animation_finished
 	character_speech.speech_text = level["Dialogue"]
-	#var target_position = current_target.position
 	if current_target:
 		current_target.queue_free()
 	current_target = available_documents[current_level["Type document"].to_lower()].instantiate()
-	#current_target.position = target_position
 	target_container.add_child(current_target)
 	current_target.initialize_values(current_level["Mots du document"].split(";"))
 	animation_player.play("doc_animation_in")

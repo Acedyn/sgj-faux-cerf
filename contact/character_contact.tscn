@@ -761,6 +761,7 @@ libraries = {
 }
 
 [node name="ManchetteContainer" type="ColorRect" parent="Control/LevelManager"]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15

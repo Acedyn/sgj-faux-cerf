@@ -9,6 +9,7 @@ anchors_preset = 0
 offset_right = 717.0
 offset_bottom = 438.0
 size_flags_vertical = 8
+mouse_filter = 2
 script = ExtResource("1_8w2d6")
 
 [node name="Texture" type="TextureRect" parent="."]

@@ -23,8 +23,9 @@ func _ready() -> void:
 			
 		manchettes.append(manchette)
 	
-func show_next_manchette():
-	manchette_texture.texture = load("res://contact/manchette.png")
+func show_next_manchette(index: int):
+	var manchette_path = "res://contact/manchettes/manchette_" + str(index) + ".png"
+	manchette_texture.texture = load("res://contact/manchettes/manchette_" + str(index) + ".png")
 	visible = true
 	animation_player.play("manchette_in")
 	await animation_player.animation_finished
