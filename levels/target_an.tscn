@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://wsmcu55pu7te"]
+
+[ext_resource type="Script" uid="uid://drspdww5qvilj" path="res://levels/document_target.gd" id="1_8w2d6"]
+[ext_resource type="Texture2D" uid="uid://b8k488b6ymcsw" path="res://levels/an.png" id="2_8w2d6"]
+
+[node name="ANWorkbench" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 717.0
+offset_bottom = 438.0
+size_flags_vertical = 8
+script = ExtResource("1_8w2d6")
+
+[node name="Texture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -633.5
+offset_top = -753.0
+offset_right = -239.5
+offset_bottom = -318.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.39661, 1.39661)
+texture = ExtResource("2_8w2d6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Zones" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -500.0
+offset_top = -318.0
+offset_right = -460.0
+offset_bottom = -278.0
+scale = Vector2(1.39661, 1.39661)
+
+[node name="nom" type="Label" parent="Zones"]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 221.0
+offset_right = 325.0
+offset_bottom = 245.0
+
+[node name="prenom" type="Label" parent="Zones"]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 221.0
+offset_right = 503.0
+offset_bottom = 245.0
+
+[node name="date_naissance" type="Label" parent="Zones"]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 276.0
+offset_right = 325.0
+offset_bottom = 300.0
+
+[node name="parent" type="Label" parent="Zones"]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 276.0
+offset_right = 503.0
+offset_bottom = 300.0
+
+[node name="pelage" type="Label" parent="Zones"]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 327.0
+offset_right = 325.0
+offset_bottom = 351.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

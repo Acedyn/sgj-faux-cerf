@@ -1,12 +1,18 @@
 class_name HoveredWord
 extends Control
 
+@onready var target_container: Control = $DocumentContainer
 @onready var current_target: DocumentChecker = $DocumentContainer/DocumentTarget
 @onready var character_speech: VBoxContainer = $CharacterSpeech
 @onready var words_container: Control = $WordsContainer
 @onready var result_container: ResultContainer = $ResultContainer
 @onready var manchette_container: ManchetteContainer = $ManchetteContainer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var available_documents: Dictionary[String, Resource] = {
+	"an": preload("res://levels/target_an.tscn"),
+	"cni": preload("res://levels/target_cni.tscn"),
+	"ct": preload("res://levels/target_ct.tscn"),
+}
 var levels: Array[Dictionary]
 var current_level: Dictionary
 var level_number = 0;
@@ -35,7 +41,8 @@ func _on_word_drag_in(node: SpeechWord):
 	duplicated_word.state = SpeechWord.WordState.SELECTED
 	duplicated_word.source = node
 	node.state = SpeechWord.WordState.HIDDEN
-	duplicated_word.doc_target = current_target.get_global_rect()
+	var target_texture = current_target.get_node("Texture")
+	duplicated_word.doc_target = target_texture.get_global_rect()
 	words_container.add_child(duplicated_word)
 
 func select_level():
@@ -66,6 +73,12 @@ func select_level():
 	level_number += 1
 	await animation_player.animation_finished
 	character_speech.speech_text = level["Dialogue"]
+	#var target_position = current_target.position
+	if current_target:
+		current_target.queue_free()
+	current_target = available_documents[current_level["Type document"].to_lower()].instantiate()
+	#current_target.position = target_position
+	target_container.add_child(current_target)
 	current_target.initialize_values(current_level["Mots du document"].split(";"))
 	animation_player.play("doc_animation_in")
 	await animation_player.animation_finished

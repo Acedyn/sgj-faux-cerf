@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://samacc2ol0v0"]
+
+[ext_resource type="Script" uid="uid://drspdww5qvilj" path="res://levels/document_target.gd" id="1_vjyys"]
+[ext_resource type="Texture2D" uid="uid://c24u5ej66o4be" path="res://levels/ct.png" id="2_vjyys"]
+
+[node name="CTWorkbench" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 717.0
+offset_bottom = 438.0
+script = ExtResource("1_vjyys")
+
+[node name="Texture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -286.0
+offset_top = -281.0
+offset_right = 110.0
+offset_bottom = 154.0
+scale = Vector2(1.4934, 1.4934)
+texture = ExtResource("2_vjyys")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Zones" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -523.0
+offset_top = -281.0
+offset_right = -483.0
+offset_bottom = -241.0
+scale = Vector2(1.4934, 1.4934)
+
+[node name="nom" type="Label" parent="Zones"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 129.0
+offset_right = 336.0
+offset_bottom = 153.0
+
+[node name="prenom" type="Label" parent="Zones"]
+layout_mode = 0
+offset_left = 367.0
+offset_top = 129.0
+offset_right = 511.0
+offset_bottom = 153.0
+
+[node name="adresse" type="Label" parent="Zones"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 195.0
+offset_right = 336.0
+offset_bottom = 219.0
+
+[node name="telephone" type="Label" parent="Zones"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 260.0
+offset_right = 336.0
+offset_bottom = 284.0
+
+[node name="mail" type="Label" parent="Zones"]
+layout_mode = 0
+offset_left = 367.0
+offset_top = 260.0
+offset_right = 511.0
+offset_bottom = 284.0
+
+[node name="telephone2" type="Label" parent="Zones"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 326.0
+offset_right = 336.0
+offset_bottom = 350.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -10,71 +10,76 @@ offset_right = 717.0
 offset_bottom = 438.0
 script = ExtResource("1_hyirq")
 
-[node name="IDTexture" type="TextureRect" parent="."]
+[node name="Texture" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 713.0
-offset_bottom = 435.0
+offset_left = -302.0
+offset_top = -220.0
+offset_right = 319.0
+offset_bottom = 215.0
 texture = ExtResource("1_oafie")
 expand_mode = 1
+stretch_mode = 5
 
-[node name="ColorRect" type="ColorRect" parent="IDTexture"]
+[node name="ColorRect" type="ColorRect" parent="Texture"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 57.0
-offset_top = -54.0
-offset_right = 226.0
-offset_bottom = -20.0
+offset_left = 90.0
+offset_top = -52.0
+offset_right = 259.0
+offset_bottom = -18.0
 grow_vertical = 0
 color = Color(0.94902, 0.913725, 0.913725, 1)
 
 [node name="Zones" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -348.0
+offset_top = -220.0
+offset_right = -308.0
+offset_bottom = -180.0
 
 [node name="nom" type="Label" parent="Zones"]
 layout_mode = 0
-offset_left = 248.0
-offset_top = 89.0
-offset_right = 531.0
-offset_bottom = 116.0
+offset_left = 260.0
+offset_top = 92.0
+offset_right = 543.0
+offset_bottom = 119.0
 
 [node name="prénom" type="Label" parent="Zones"]
 layout_mode = 0
-offset_left = 248.0
-offset_top = 141.0
-offset_right = 531.0
-offset_bottom = 168.0
+offset_left = 260.0
+offset_top = 144.0
+offset_right = 543.0
+offset_bottom = 171.0
 
 [node name="regime_alimentaire" type="Label" parent="Zones"]
 layout_mode = 0
-offset_left = 248.0
-offset_top = 195.0
-offset_right = 531.0
-offset_bottom = 222.0
+offset_left = 260.0
+offset_top = 198.0
+offset_right = 543.0
+offset_bottom = 225.0
 
 [node name="famille" type="Label" parent="Zones"]
 layout_mode = 0
-offset_left = 248.0
-offset_top = 247.0
-offset_right = 531.0
-offset_bottom = 274.0
+offset_left = 260.0
+offset_top = 250.0
+offset_right = 543.0
+offset_bottom = 277.0
 
 [node name="espèce" type="Label" parent="Zones"]
 layout_mode = 0
-offset_left = 248.0
-offset_top = 302.0
-offset_right = 531.0
-offset_bottom = 329.0
+offset_left = 260.0
+offset_top = 305.0
+offset_right = 543.0
+offset_bottom = 332.0
 
 [node name="genre" type="Label" parent="Zones"]
 layout_mode = 0
-offset_left = 248.0
-offset_top = 357.0
-offset_right = 531.0
-offset_bottom = 384.0
+offset_left = 260.0
+offset_top = 360.0
+offset_right = 543.0
+offset_bottom = 387.0
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

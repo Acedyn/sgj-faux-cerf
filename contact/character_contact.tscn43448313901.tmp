@@ -682,7 +682,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_6t8y8")
 [node name="Panel2" type="Panel" parent="Control/LevelManager/ResultContainer/ResultContainer/MarginContainer2/Panel"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 0
-offset_right = 1321.89
 offset_bottom = 80.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qcico")
 
