@@ -8,6 +8,7 @@ extends Control
 @onready var result_container: ResultContainer = $ResultContainer
 @onready var manchette_container: ManchetteContainer = $ManchetteContainer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var character_texture: TextureRect = $CharacterContainer/CharacterTexture
 @onready var available_documents: Dictionary[String, Resource] = {
 	"an": preload("res://levels/target_an.tscn"),
 	"cni": preload("res://levels/target_cni.tscn"),
@@ -63,18 +64,30 @@ func select_level():
 		await manchette_container.show_next_manchette(manchette_number+1)
 		manchette_number += 1
 		
+	# Load the character's texture
+	if current_target:
+		current_target.queue_free()
+	var character_texture_path = "res://characters/" + current_level.get("Sprite", "default.png")
+	var texture = load(character_texture_path)
+	if not texture:
+		texture = load("res://characters/default.png")
+		print("ERROR: Could not load character sprite: " + current_level.get("Sprite", "default.png"))
+	character_texture.texture = texture
+		
 	# Start the next level
 	animation_player.play("character_animation_in")
 	# Filter out the speeches that are not available yet according to the
 	# current manchette
-	var filtered_level = levels.filter(func(x): return int(x["Manchette"]) <= manchette_number)
+	#var filtered_level = levels.filter(func(x): return int(x["Manchette"]) <= manchette_number)
+	var filtered_level = levels
 	var level = filtered_level[randi() % filtered_level.size()]
 	current_level = level
 	level_number += 1
 	await animation_player.animation_finished
+	# Show the dialogue
 	character_speech.speech_text = level["Dialogue"]
-	if current_target:
-		current_target.queue_free()
+	
+	# Load the right document
 	current_target = available_documents[current_level["Type document"].to_lower()].instantiate()
 	target_container.add_child(current_target)
 	current_target.initialize_values(current_level["Mots du document"].split(";"))

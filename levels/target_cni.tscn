@@ -68,13 +68,6 @@ offset_top = 250.0
 offset_right = 543.0
 offset_bottom = 277.0
 
-[node name="espèce" type="Label" parent="Zones"]
-layout_mode = 0
-offset_left = 260.0
-offset_top = 305.0
-offset_right = 543.0
-offset_bottom = 332.0
-
 [node name="genre" type="Label" parent="Zones"]
 layout_mode = 0
 offset_left = 260.0

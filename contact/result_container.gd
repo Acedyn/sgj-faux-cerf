@@ -11,7 +11,7 @@ func _ready() -> void:
 func show_score(score: float):
 	score_label.text = str(int(score*100)) + "%"
 	visible = true
-	if score > 0.5:
+	if score > 0.9:
 		animation_player.play("result_in_passed")
 	else:
 		animation_player.play("result_in_refused")
