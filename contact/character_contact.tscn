@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://8me4xnlh8tfy" path="res://contact/background.png" id="1_jj318"]
 [ext_resource type="Texture2D" uid="uid://bm0ba60efbyh7" path="res://contact/decor.png" id="1_q75l0"]
 [ext_resource type="PackedScene" uid="uid://c450qi8ssgmge" path="res://speech/character_speech.tscn" id="3_jj318"]
-[ext_resource type="Texture2D" uid="uid://dg2omi5r8m0ha" path="res://characters/default.png" id="4_4d1mq"]
+[ext_resource type="Texture2D" path="res://characters/default.png" id="4_4d1mq"]
 [ext_resource type="Theme" uid="uid://b1hrtwt8x08fy" path="res://speech/speech_theme.tres" id="5_nhl12"]
 [ext_resource type="Script" uid="uid://dg177okdt05xo" path="res://levels/level_manager.gd" id="7_nw3mx"]
 [ext_resource type="Texture2D" uid="uid://ckbuvei5dot36" path="res://levels/passed.png" id="8_we84g"]
@@ -572,12 +572,12 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -398.445
-offset_right = -1689.45
+offset_right = -1291.0
 offset_bottom = -382.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_4d1mq")
+stretch_mode = 3
 
 [node name="DecorTexture" type="TextureRect" parent="Control/LevelManager"]
 layout_mode = 1
@@ -596,9 +596,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 412.5
+offset_left = -225.5
 offset_top = -192.0
-offset_right = 890.5
+offset_right = 252.5
 grow_horizontal = 2
 grow_vertical = 0
 texture_normal = ExtResource("8_x1xsh")
@@ -672,7 +672,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_6t8y8")
 [node name="Panel2" type="Panel" parent="Control/LevelManager/ResultContainer/ResultContainer/MarginContainer2/Panel"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 0
-offset_right = 1321.89
 offset_bottom = 80.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qcico")
 

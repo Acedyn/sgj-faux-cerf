@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5874nqpn8ycf"
-path="res://.godot/imported/milo.png-103587eff236ec674b0ad5e17123368c.ctex"
+uid="uid://bb6xoelw42pxp"
+path="res://.godot/imported/renard.png-88e0c4b23817131df0e6a0b8299aae38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/milo.png"
-dest_files=["res://.godot/imported/milo.png-103587eff236ec674b0ad5e17123368c.ctex"]
+source_file="res://characters/renard.png"
+dest_files=["res://.godot/imported/renard.png-88e0c4b23817131df0e6a0b8299aae38.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtfrvcy3stnkr"
-path="res://.godot/imported/felix.png-22eb3710fff728bb8d5f799ccd68fbbf.ctex"
+uid="uid://c8aejhrrrgm7i"
+path="res://.godot/imported/chat.png-d77b71d2e19afbaf0bfb1290d7b1ea85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/felix.png"
-dest_files=["res://.godot/imported/felix.png-22eb3710fff728bb8d5f799ccd68fbbf.ctex"]
+source_file="res://characters/chat.png"
+dest_files=["res://.godot/imported/chat.png-d77b71d2e19afbaf0bfb1290d7b1ea85.ctex"]
 
 [params]
 

@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0j3ifdf50jax"]
+[gd_scene load_steps=5 format=3 uid="uid://d0j3ifdf50jax"]
 
 [ext_resource type="Script" uid="uid://drspdww5qvilj" path="res://levels/document_target.gd" id="1_hyirq"]
 [ext_resource type="Texture2D" uid="uid://ekurwj45p73" path="res://levels/id.png" id="1_oafie"]
+
+[sub_resource type="SystemFont" id="SystemFont_p23n1"]
+font_names = PackedStringArray("Ebrima")
+font_weight = 900
+oversampling = 3.0
+
+[sub_resource type="Theme" id="Theme_4pms7"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 18
+Label/fonts/font = SubResource("SystemFont_p23n1")
 
 [node name="IDWorkbench" type="Control"]
 layout_mode = 3
@@ -39,6 +49,7 @@ offset_left = -348.0
 offset_top = -220.0
 offset_right = -308.0
 offset_bottom = -180.0
+theme = SubResource("Theme_4pms7")
 
 [node name="nom" type="Label" parent="Zones"]
 layout_mode = 0
@@ -46,13 +57,14 @@ offset_left = 260.0
 offset_top = 92.0
 offset_right = 543.0
 offset_bottom = 119.0
+text = "placeolder"
 
 [node name="prénom" type="Label" parent="Zones"]
 layout_mode = 0
-offset_left = 260.0
-offset_top = 144.0
-offset_right = 543.0
-offset_bottom = 171.0
+offset_left = 259.0
+offset_top = 142.0
+offset_right = 542.0
+offset_bottom = 169.0
 
 [node name="regime_alimentaire" type="Label" parent="Zones"]
 layout_mode = 0

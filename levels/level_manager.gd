@@ -59,15 +59,22 @@ func select_level():
 		animation_player.play("character_animation_out")
 		await animation_player.animation_finished
 		
-	# Show a manchette every 3 levels
-	if level_number % 3 == 0:
+	# Filter out the speeches that are not available yet according to the
+	# current manchette
+	var filtered_level = levels
+	var level = filtered_level[level_number]
+	current_level = level
+	level_number += 1
+		
+	# Show a manchette is specified in the level
+	while int(current_level["Manchette"].split("-")[0]) > manchette_number:
 		await manchette_container.show_next_manchette(manchette_number+1)
 		manchette_number += 1
 		
 	# Load the character's texture
 	if current_target:
 		current_target.queue_free()
-	var character_texture_path = "res://characters/" + current_level.get("Sprite", "default.png")
+	var character_texture_path = "res://characters/" + current_level.get("Sprite", "default").to_lower() + ".png"
 	var texture = load(character_texture_path)
 	if not texture:
 		texture = load("res://characters/default.png")
@@ -76,13 +83,6 @@ func select_level():
 		
 	# Start the next level
 	animation_player.play("character_animation_in")
-	# Filter out the speeches that are not available yet according to the
-	# current manchette
-	#var filtered_level = levels.filter(func(x): return int(x["Manchette"]) <= manchette_number)
-	var filtered_level = levels
-	var level = filtered_level[randi() % filtered_level.size()]
-	current_level = level
-	level_number += 1
 	await animation_player.animation_finished
 	# Show the dialogue
 	character_speech.speech_text = level["Dialogue"]

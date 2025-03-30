@@ -11,7 +11,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dvn81"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wt5hm"]
-bg_color = Color(0.929715, 0.929715, 0.929715, 1)
+bg_color = Color(0.929412, 0.929412, 0.929412, 0.784314)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10

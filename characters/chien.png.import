@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc1netgewus8l"
-path="res://.godot/imported/charlotte.png-d424188c627322c92c3638d5f614c629.ctex"
+uid="uid://c5inw7g65to40"
+path="res://.godot/imported/chien.png-106ff51ba763ffbe80cc50e69dce1edc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/charlotte.png"
-dest_files=["res://.godot/imported/charlotte.png-d424188c627322c92c3638d5f614c629.ctex"]
+source_file="res://characters/chien.png"
+dest_files=["res://.godot/imported/chien.png-106ff51ba763ffbe80cc50e69dce1edc.ctex"]
 
 [params]
 

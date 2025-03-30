@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djsuj66op4lys"
-path="res://.godot/imported/tou.png-578f9a13ca005c0e7ba49ec2d359de13.ctex"
+uid="uid://hdanrfbhfkms"
+path="res://.godot/imported/canard.png-9c4b893d39674ab6144980eaee15b890.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/tou.png"
-dest_files=["res://.godot/imported/tou.png-578f9a13ca005c0e7ba49ec2d359de13.ctex"]
+source_file="res://characters/canard.png"
+dest_files=["res://.godot/imported/canard.png-9c4b893d39674ab6144980eaee15b890.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8xy53kdrnioy"
-path="res://.godot/imported/lionel.png-ab426a9afae6b025aa390e1e9f26b508.ctex"
+uid="uid://bkad2ingwyqe7"
+path="res://.godot/imported/grenouille.png-f773d65abde1696479099a296b7c617d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/lionel.png"
-dest_files=["res://.godot/imported/lionel.png-ab426a9afae6b025aa390e1e9f26b508.ctex"]
+source_file="res://characters/grenouille.png"
+dest_files=["res://.godot/imported/grenouille.png-f773d65abde1696479099a296b7c617d.ctex"]
 
 [params]
 

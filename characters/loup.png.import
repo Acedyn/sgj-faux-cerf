@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y4sglhoul2dl"
-path="res://.godot/imported/renan.png-220ee46c97437b27387b1a8053acf5e8.ctex"
+uid="uid://ccy6uhs6d58ot"
+path="res://.godot/imported/loup.png-c87ab43af19ebd264245a47be8e5de4e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/renan.png"
-dest_files=["res://.godot/imported/renan.png-220ee46c97437b27387b1a8053acf5e8.ctex"]
+source_file="res://characters/loup.png"
+dest_files=["res://.godot/imported/loup.png-c87ab43af19ebd264245a47be8e5de4e.ctex"]
 
 [params]
 

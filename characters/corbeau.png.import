@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjmvq0a4jihxf"
-path="res://.godot/imported/aracy.png-aacbf1c9718d4999d13f513ef230f383.ctex"
+uid="uid://d32n3jycg77jo"
+path="res://.godot/imported/corbeau.png-aa785a1c52649f5fa9e19946b47417ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/aracy.png"
-dest_files=["res://.godot/imported/aracy.png-aacbf1c9718d4999d13f513ef230f383.ctex"]
+source_file="res://characters/corbeau.png"
+dest_files=["res://.godot/imported/corbeau.png-aa785a1c52649f5fa9e19946b47417ad.ctex"]
 
 [params]
 

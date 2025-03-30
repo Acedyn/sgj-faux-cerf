@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://wsmcu55pu7te"]
+[gd_scene load_steps=5 format=3 uid="uid://wsmcu55pu7te"]
 
 [ext_resource type="Script" uid="uid://drspdww5qvilj" path="res://levels/document_target.gd" id="1_8w2d6"]
 [ext_resource type="Texture2D" uid="uid://b8k488b6ymcsw" path="res://levels/an.png" id="2_8w2d6"]
+
+[sub_resource type="SystemFont" id="SystemFont_8w2d6"]
+font_names = PackedStringArray("Courier New")
+font_weight = 900
+oversampling = 3.0
+
+[sub_resource type="Theme" id="Theme_kqmwp"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/fonts/font = SubResource("SystemFont_8w2d6")
 
 [node name="ANWorkbench" type="Control"]
 layout_mode = 3
@@ -19,24 +28,25 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -663.5
-offset_top = -774.0
-offset_right = -269.5
-offset_bottom = -339.0
+offset_left = -615.5
+offset_top = -758.0
+offset_right = -221.5
+offset_bottom = -323.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(1.55141, 1.55141)
+scale = Vector2(1.37702, 1.37702)
 texture = ExtResource("2_8w2d6")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Zones" type="Control" parent="."]
 anchors_preset = 0
-offset_left = -530.0
-offset_top = -339.0
-offset_right = -490.0
-offset_bottom = -299.0
-scale = Vector2(1.55141, 1.55141)
+offset_left = -482.0
+offset_top = -323.0
+offset_right = -442.0
+offset_bottom = -283.0
+scale = Vector2(1.37702, 1.37702)
+theme = SubResource("Theme_kqmwp")
 
 [node name="nom" type="Label" parent="Zones"]
 layout_mode = 0
@@ -45,6 +55,7 @@ offset_top = 221.0
 offset_right = 325.0
 offset_bottom = 245.0
 theme_override_font_sizes/font_size = 16
+text = "Placeholder"
 
 [node name="prenom" type="Label" parent="Zones"]
 layout_mode = 0
