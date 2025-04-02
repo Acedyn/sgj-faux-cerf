@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://db1fr74uq3b0w"]
+
+[ext_resource type="Script" uid="uid://sl51da1fxv28" path="res://prospectus/item_scene/5.gd" id="1_uldnh"]
+[ext_resource type="Texture2D" uid="uid://ka1egs3tey4q" path="res://prospectus/item/5.png" id="2_xeyev"]
+[ext_resource type="PackedScene" uid="uid://c450qi8ssgmge" path="res://speech/character_speech.tscn" id="3_6lmiv"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_uldnh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 127.0
+offset_right = 697.0
+offset_bottom = 979.0
+scale = Vector2(0.867787, 0.913024)
+texture = ExtResource("2_xeyev")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="CharacterSpeech" parent="TextureRect" instance=ExtResource("3_6lmiv")]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 331.0
+offset_right = 617.0
+offset_bottom = 616.0
+speech_text = ""

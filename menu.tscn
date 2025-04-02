@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://t8pvtaps8dqw"]
+
+[ext_resource type="Script" uid="uid://dnskqgi34cvei" path="res://menu.gd" id="1_mae5d"]
+[ext_resource type="PackedScene" uid="uid://c2svv3i3j4sxn" path="res://contact/character_contact.tscn" id="2_4hy44"]
+[ext_resource type="AudioStream" uid="uid://c8qnx0hsfd5dd" path="res://music.mp3" id="2_ytr4m"]
+[ext_resource type="Texture2D" uid="uid://cojfmhucrn4jn" path="res://logo.png" id="3_ytr4m"]
+
+[sub_resource type="SystemFont" id="SystemFont_l48gv"]
+font_names = PackedStringArray("Verdana")
+font_weight = 999
+subpixel_positioning = 0
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mae5d")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ytr4m")
+autoplay = true
+
+[node name="CharacterContact" parent="." instance=ExtResource("2_4hy44")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.588235)
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -285.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ytr4m")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 833.0
+offset_right = 1429.0
+offset_bottom = 965.0
+theme_override_colors/font_color = Color(0.839216, 0.627451, 0.321569, 1)
+theme_override_fonts/font = SubResource("SystemFont_l48gv")
+theme_override_font_sizes/font_size = 101
+text = "Jouer"
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

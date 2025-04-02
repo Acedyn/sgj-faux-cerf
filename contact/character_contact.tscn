@@ -1,5 +1,6 @@
-[gd_scene load_steps=36 format=3 uid="uid://c2svv3i3j4sxn"]
+[gd_scene load_steps=40 format=3 uid="uid://c2svv3i3j4sxn"]
 
+[ext_resource type="Script" uid="uid://dq25tjpp6klcr" path="res://contact/character_contact.gd" id="1_gjmd2"]
 [ext_resource type="Texture2D" uid="uid://8me4xnlh8tfy" path="res://contact/background.png" id="1_jj318"]
 [ext_resource type="Texture2D" uid="uid://bm0ba60efbyh7" path="res://contact/decor.png" id="1_q75l0"]
 [ext_resource type="PackedScene" uid="uid://c450qi8ssgmge" path="res://speech/character_speech.tscn" id="3_jj318"]
@@ -7,13 +8,16 @@
 [ext_resource type="Theme" uid="uid://b1hrtwt8x08fy" path="res://speech/speech_theme.tres" id="5_nhl12"]
 [ext_resource type="Texture2D" uid="uid://ckk05tcqx182c" path="res://contact/manchette_button.png" id="6_6t8y8"]
 [ext_resource type="Script" uid="uid://dg177okdt05xo" path="res://levels/level_manager.gd" id="7_nw3mx"]
+[ext_resource type="Script" uid="uid://bjvst0fn4j4hy" path="res://contact/prospectus_container.gd" id="8_a0xff"]
 [ext_resource type="Texture2D" uid="uid://ckbuvei5dot36" path="res://levels/passed.png" id="8_we84g"]
 [ext_resource type="Texture2D" uid="uid://bknc75sfpjob3" path="res://contact/button_finish.png" id="8_x1xsh"]
 [ext_resource type="Script" uid="uid://cwduwy2napkd" path="res://contact/result_container.gd" id="9_4d1mq"]
 [ext_resource type="Texture2D" uid="uid://b76k563tkymj" path="res://levels/refused.png" id="9_c3q2n"]
+[ext_resource type="Texture2D" uid="uid://c5jnqov73ad1l" path="res://contact/button_finish_hover.png" id="10_nshxt"]
 [ext_resource type="Script" uid="uid://dhlugcahi40a6" path="res://contact/manchette_container.gd" id="11_4d1mq"]
 [ext_resource type="Texture2D" uid="uid://baucc5dwglskd" path="res://contact/manchette.png" id="12_6t8y8"]
 [ext_resource type="Script" uid="uid://bhexus7g6dd6j" path="res://contact/manchette_explorer.gd" id="14_qcico"]
+[ext_resource type="Texture2D" uid="uid://4um60m3na0aj" path="res://contact/manchette_button_hover.png" id="15_5231m"]
 
 [sub_resource type="Animation" id="Animation_nw3mx"]
 length = 0.001
@@ -244,14 +248,14 @@ border_width_left = 8
 border_width_top = 8
 border_width_right = 8
 border_width_bottom = 8
-border_color = Color(0, 1, 0.0705882, 1)
+border_color = Color(0.761487, 0.937436, 0.167529, 1)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qcico"]
-bg_color = Color(0, 1, 0.0705882, 1)
+bg_color = Color(0.760784, 0.937255, 0.168627, 1)
 border_width_left = 15
 border_width_top = 15
 border_width_right = 15
@@ -567,6 +571,7 @@ _data = {
 }
 
 [node name="CharacterContact" type="Node2D"]
+script = ExtResource("1_gjmd2")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -627,34 +632,6 @@ grow_vertical = 2
 texture = ExtResource("1_q75l0")
 expand_mode = 1
 
-[node name="ManchetteMenu" type="TextureButton" parent="Control/LevelManager"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -298.0
-offset_top = -366.0
-grow_horizontal = 0
-grow_vertical = 0
-texture_normal = ExtResource("6_6t8y8")
-
-[node name="ValidateButton" type="TextureButton" parent="Control/LevelManager"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -225.5
-offset_top = -192.0
-offset_right = 252.5
-grow_horizontal = 2
-grow_vertical = 0
-texture_normal = ExtResource("8_x1xsh")
-stretch_mode = 5
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control/LevelManager"]
 libraries = {
 &"": SubResource("AnimationLibrary_4d1mq")
@@ -671,8 +648,47 @@ offset_left = -501.079
 offset_top = -268.288
 offset_right = 0.920898
 offset_bottom = 268.712
+is_speach = true
 speech_text = "Hello je m'appelle Simon, qmgjsopifgsdrtop, "
 metadata/_edit_use_anchors_ = true
+
+[node name="ProspectusContainer" type="Control" parent="Control/LevelManager"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_a0xff")
+
+[node name="ProspectusButtons" type="Control" parent="Control/LevelManager/ProspectusContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProspectusSelected" type="Control" parent="Control/LevelManager/ProspectusContainer"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ValidateButton" type="TextureButton" parent="Control/LevelManager"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -225.5
+offset_top = -192.0
+offset_right = 252.5
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("8_x1xsh")
+texture_hover = ExtResource("10_nshxt")
+stretch_mode = 5
 
 [node name="ResultContainer" type="ColorRect" parent="Control/LevelManager"]
 modulate = Color(1, 1, 1, 0)
@@ -702,7 +718,7 @@ theme_override_constants/margin_bottom = 50
 [node name="Label" type="Label" parent="Control/LevelManager/ResultContainer/ResultContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 1, 0.0705882, 1)
+theme_override_colors/font_color = Color(0.760784, 0.937255, 0.168627, 1)
 theme_override_fonts/font = SubResource("SystemFont_x1xsh")
 theme_override_font_sizes/font_size = 42
 text = "Analyse en cours:"
@@ -723,7 +739,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_6t8y8")
 [node name="Panel2" type="Panel" parent="Control/LevelManager/ResultContainer/ResultContainer/MarginContainer2/Panel"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 0
-offset_right = 1321.89
 offset_bottom = 80.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qcico")
 
@@ -746,7 +761,7 @@ theme_override_constants/margin_bottom = 50
 [node name="Label" type="Label" parent="Control/LevelManager/ResultContainer/ScoreContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 1, 0.0705882, 1)
+theme_override_colors/font_color = Color(0.760784, 0.937255, 0.168627, 1)
 theme_override_fonts/font = SubResource("SystemFont_x1xsh")
 theme_override_font_sizes/font_size = 42
 text = "Analyse en cours:"
@@ -801,6 +816,42 @@ libraries = {
 &"": SubResource("AnimationLibrary_djtxk")
 }
 
+[node name="DocumentContainer" type="Control" parent="Control/LevelManager"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 800.0
+offset_right = 800.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="WordsContainer" type="Control" parent="Control/LevelManager"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ManchetteMenu" type="TextureButton" parent="Control/LevelManager"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -298.0
+offset_top = -366.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("6_6t8y8")
+texture_hover = ExtResource("15_5231m")
+
 [node name="ManchetteContainer" type="ColorRect" parent="Control/LevelManager"]
 visible = false
 modulate = Color(1, 1, 1, 0)
@@ -847,8 +898,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 1000.0
-offset_bottom = 1000.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 200
@@ -877,29 +926,8 @@ grow_vertical = 0
 texture_normal = ExtResource("8_x1xsh")
 stretch_mode = 5
 
-[node name="DocumentContainer" type="Control" parent="Control/LevelManager"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 800.0
-offset_right = 800.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="WordsContainer" type="Control" parent="Control/LevelManager"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-metadata/_edit_use_anchors_ = true
-
 [node name="ManchetteExplorer" type="ColorRect" parent="Control/LevelManager"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -972,8 +1000,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[connection signal="pressed" from="Control/LevelManager/ManchetteMenu" to="Control/LevelManager/ManchetteExplorer" method="_on_manchette_menu_pressed"]
 [connection signal="pressed" from="Control/LevelManager/ValidateButton" to="Control/LevelManager" method="_on_validate_button_pressed"]
 [connection signal="pressed" from="Control/LevelManager/ResultContainer/ContinueButton" to="Control/LevelManager" method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Control/LevelManager/ManchetteMenu" to="Control/LevelManager/ManchetteExplorer" method="_on_manchette_menu_pressed"]
 [connection signal="pressed" from="Control/LevelManager/ManchetteContainer/ContinueButton" to="Control/LevelManager/ManchetteContainer" method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Control/LevelManager/ManchetteExplorer/ContinueButton" to="Control/LevelManager/ManchetteExplorer" method="_on_continue_button_pressed"]

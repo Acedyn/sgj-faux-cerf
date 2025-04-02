@@ -1,6 +1,7 @@
 class_name HoveredWord
 extends Control
 
+@onready var prospectus_container: ProspectusContainer = $ProspectusContainer
 @onready var target_container: Control = $DocumentContainer
 @onready var current_target: DocumentChecker = $DocumentContainer/DocumentTarget
 @onready var character_speech: VBoxContainer = $CharacterSpeech
@@ -33,8 +34,6 @@ func _ready() -> void:
 			level[entry] = level_data[i]
 			
 		levels.append(level)
-			
-	select_level()
 	
 func _on_word_drag_in(node: SpeechWord):
 	var duplicated_word = node.duplicate()
@@ -80,6 +79,13 @@ func select_level():
 		texture = load("res://characters/default.png")
 		print("ERROR: Could not load character sprite: " + current_level.get("Sprite", "default.png"))
 	character_texture.texture = texture
+	
+	# Load the available prospectus
+	var prospectus_indexes: Array[int] = []
+	prospectus_indexes.assign(Array(current_level["Prospectus dispo"].split(",")).map(func(x): return int(x)))
+	await prospectus_container.create_prospectus_buttons(
+		prospectus_indexes
+	)
 		
 	# Start the next level
 	animation_player.play("character_animation_in")

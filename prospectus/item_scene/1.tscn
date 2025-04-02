@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://jb3uupc8h6ji"]
+
+[ext_resource type="Script" uid="uid://e7qllyc7brub" path="res://prospectus/item_scene/1.gd" id="1_ppogn"]
+[ext_resource type="Texture2D" uid="uid://pvfr40o8yyl5" path="res://prospectus/item/1.png" id="2_ppogn"]
+[ext_resource type="PackedScene" uid="uid://c450qi8ssgmge" path="res://speech/character_speech.tscn" id="3_5571d"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -201.0
+offset_right = -161.0
+offset_bottom = 40.0
+script = ExtResource("1_ppogn")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 14.0
+offset_right = 579.0
+offset_bottom = 346.0
+scale = Vector2(1.67901, 1.67901)
+texture = ExtResource("2_ppogn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect"]
+layout_mode = 0
+offset_top = 250.0
+offset_right = 358.0
+offset_bottom = 532.0
+
+[node name="CharacterSpeech" parent="TextureRect" instance=ExtResource("3_5571d")]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 166.0
+offset_right = 331.0
+offset_bottom = 504.0
+speech_text = "Cher William, je suis actuellement en vacances à Château-Renard avec mon amie Louise - tu sais, notre voisine amphibien. Felix le chat angora rouge et Raoul le chien pitbull vont nous rejoindre au restaurant ce soir. Bises, Hubert Choupisson"

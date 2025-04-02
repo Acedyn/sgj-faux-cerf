@@ -9,6 +9,19 @@ enum WordState {IN_SPEECH, HIDDEN, SELECTED, PLACED}
 		else:
 			modulate = Color(1, 1, 1, 1)
 		state = value
+		
+		if value == WordState.PLACED:
+			var flat := StyleBoxFlat.new()
+			flat.bg_color = Color(1, 1, 1, 1)
+			flat.corner_radius_bottom_left = 5
+			flat.corner_radius_bottom_right = 5
+			flat.corner_radius_top_left = 5
+			flat.corner_radius_top_right = 5
+			add_theme_stylebox_override("normal", flat)
+			add_theme_stylebox_override("hover", flat)
+			add_theme_stylebox_override("hover_pressed", flat)
+			add_theme_stylebox_override("focus", flat)
+			add_theme_stylebox_override("pressed", flat)
 @export var hovered: bool = false
 @export var offset: Vector2 = Vector2(0, 0)
 @export var doc_target: Rect2 = Rect2()

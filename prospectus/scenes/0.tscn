@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkahb5tq1iapf"]
+
+[ext_resource type="Script" uid="uid://c0g5g1qycg1gj" path="res://prospectus/scenes/forward.gd" id="1_5xojn"]
+[ext_resource type="Texture2D" uid="uid://bjooh8g1ye737" path="res://prospectus/button/0.png" id="1_c1wa0"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_5xojn")
+
+[node name="TextureRect" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 219.0
+offset_top = 875.0
+offset_right = 658.0
+offset_bottom = 1082.0
+texture_normal = ExtResource("1_c1wa0")

@@ -29,6 +29,10 @@ func show_next_manchette(index: int):
 	visible = true
 	animation_player.play("manchette_in")
 	await animation_player.animation_finished
+	await continue_button.pressed
+	animation_player.play("manchette_out")
+	await animation_player.animation_finished
+	visible = false
 
 func hide_manchette():
 	animation_player.play("manchette_out")
@@ -37,4 +41,5 @@ func hide_manchette():
 
 
 func _on_continue_button_pressed() -> void:
-	await hide_manchette()
+	return
+	#await hide_manchette()

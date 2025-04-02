@@ -4,15 +4,19 @@ extends VBoxContainer
 var speech_word_scene: PackedScene = preload("res://speech/speech_word.tscn")
 var current_timer: SceneTreeTimer
 var is_writing: bool = false
+@export var is_speach: bool = false
 
 @export_group("Speech Properties")
 @export var speech_text: String:
 	set(value):
-		print("Setting speech_text")
 		if is_node_ready():
 			create_speech_labels(value)
 			
 func _ready() -> void:
+	if not is_speach:
+		var stylebox = StyleBoxFlat.new()
+		stylebox.bg_color.a = 0
+		$PanelContainer.add_theme_stylebox_override("panel", stylebox)
 	create_speech_labels(speech_text)
 
 func create_speech_labels(text: String):
@@ -35,12 +39,14 @@ func create_speech_labels(text: String):
 			continue
 			
 		# Create and instantiate the label node
-		await get_tree().create_timer(0.02)
+		if is_speach:
+			await get_tree().create_timer(0.02)
 		var word_node = speech_word_scene.instantiate()
 		for letter_index in range(word.length()):
 			var letter = word[letter_index]
 			if not is_writing:
 				break
-			await get_tree().create_timer(0.01).timeout
+			if is_speach:
+				await get_tree().create_timer(0.01).timeout
 			word_node.text = word.substr(0, letter_index+1)
 		speech_container.add_child(word_node)

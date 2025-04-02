@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx2n4586cyuo6"]
+
+[ext_resource type="Script" uid="uid://icu0cdbiog3h" path="res://prospectus/item_scene/0.gd" id="1_unejh"]
+[ext_resource type="Texture2D" uid="uid://c4i4wmslgts2" path="res://prospectus/item/0.png" id="2_lg568"]
+[ext_resource type="PackedScene" uid="uid://c450qi8ssgmge" path="res://speech/character_speech.tscn" id="3_unejh"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_right = 39.0
+offset_bottom = 40.0
+script = ExtResource("1_unejh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 230.0
+offset_right = 911.0
+offset_bottom = 793.0
+scale = Vector2(0.798389, 0.798389)
+texture = ExtResource("2_lg568")
+
+[node name="CharacterSpeech" parent="TextureRect" instance=ExtResource("3_unejh")]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 20.0
+offset_right = 411.0
+offset_bottom = 507.0
+speech_text = "Cher William, je suis actuellement en vacances à Château-Renard avec mon amie Louise - tu sais, notre voisine amphibien. Felix le chat angora rouge et Raoul le chien pitbull vont nous rejoindre au restaurant ce soir. Bises, Hubert Choupisson"
