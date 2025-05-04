@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bcxujv1cfenhm"]
+
+[ext_resource type="FontFile" uid="uid://ldpluii6srv1" path="res://assets/fonts/P22Typewriter/P22 Typewriter Regular.ttf" id="1_8ed83"]
+
+[resource]
+default_font = ExtResource("1_8ed83")
+default_font_size = 20
+Label/colors/font_color = Color(0.103744, 0.103744, 0.103744, 1)

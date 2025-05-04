@@ -1,15 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://c082k5hjfg62w"]
+[gd_scene load_steps=4 format=3 uid="uid://c082k5hjfg62w"]
 
+[ext_resource type="Script" uid="uid://b5am4od6wnh7e" path="res://ui/Button.gd" id="1_33wxf"]
 [ext_resource type="PackedScene" uid="uid://cw7hf4vmhau26" path="res://ui/ButtonBase.tscn" id="2_12mtr"]
 [ext_resource type="Texture2D" uid="uid://cimtuisu4s8oc" path="res://assets/buttons/BtnClose.png" id="2_umo3u"]
 
-[node name="ButtonSmall" type="Control"]
+[node name="ButtonClose" type="Control"]
 layout_mode = 3
 anchor_right = 1.0
 anchor_bottom = 0.235
 offset_bottom = 0.249985
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_33wxf")
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonBase" parent="." instance=ExtResource("2_12mtr")]

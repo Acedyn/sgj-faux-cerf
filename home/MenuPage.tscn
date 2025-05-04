@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://df6h3ruegctmm"]
+
+[ext_resource type="FontFile" uid="uid://ldpluii6srv1" path="res://assets/fonts/P22Typewriter/P22 Typewriter Regular.ttf" id="1_f6b7f"]
+[ext_resource type="Script" uid="uid://bpovn6nkfjjyo" path="res://home/MenuPage.gd" id="2_5n2vv"]
+[ext_resource type="Texture2D" uid="uid://crbw6saho0gg1" path="res://assets/HomeLogo.png" id="5_v7o47"]
+[ext_resource type="PackedScene" uid="uid://bkwlwghxijyo6" path="res://ui/ButtonMedium.tscn" id="6_av2c8"]
+[ext_resource type="PackedScene" uid="uid://chmvvkkbm4thh" path="res://ui/ButtonLarge.tscn" id="7_k27su"]
+
+[sub_resource type="Theme" id="Theme_rbcel"]
+default_font = ExtResource("1_f6b7f")
+default_font_size = 22
+Label/colors/font_color = Color(0.103744, 0.103744, 0.103744, 1)
+
+[node name="MenuPage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_rbcel")
+script = ExtResource("2_5n2vv")
+
+[node name="LogoMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.525882
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+metadata/_edit_use_anchors_ = true
+
+[node name="LogoImage" type="TextureRect" parent="LogoMargin"]
+layout_mode = 2
+texture = ExtResource("5_v7o47")
+expand_mode = 2
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayNewButton" parent="." instance=ExtResource("7_k27su")]
+layout_mode = 2
+anchors_preset = 0
+anchor_top = 0.5
+anchor_bottom = 0.653
+offset_top = 18.0
+offset_bottom = 17.95
+size_flags_vertical = 3
+label_value = "Nouvelle partie"
+
+[node name="EditorButton" parent="." instance=ExtResource("7_k27su")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = -0.002
+anchor_top = 0.600118
+anchor_bottom = 0.768118
+offset_left = -0.2
+offset_top = 17.9
+offset_right = -1.0
+offset_bottom = 18.1
+size_flags_vertical = 3
+label_value = "Editeur de niveau"
+
+[node name="CreditsButton" parent="." instance=ExtResource("6_av2c8")]
+layout_mode = 2
+anchors_preset = 0
+anchor_top = 0.714
+anchor_bottom = 0.875
+offset_top = 18.1
+offset_bottom = 18.2499
+size_flags_vertical = 3
+label_value = "Credits"
+
+[connection signal="clicked" from="PlayNewButton" to="." method="_on_play_new_button_clicked"]
+[connection signal="clicked" from="EditorButton" to="." method="_on_editor_button_clicked"]
+[connection signal="clicked" from="CreditsButton" to="." method="_on_credits_button_clicked"]

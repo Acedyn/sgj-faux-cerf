@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://13rxi34hj1hn"]
+
+[ext_resource type="PackedScene" uid="uid://c082k5hjfg62w" path="res://ui/ButtonClose.tscn" id="1_croml"]
+[ext_resource type="Script" uid="uid://b3jvg8nnyoynl" path="res://home/CreditsPage.gd" id="1_n7dap"]
+
+[node name="CreditsPage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n7dap")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.156471
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="CreditLiliane" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "D’aprés les recherche de :
+Liliane"
+horizontal_alignment = 1
+
+[node name="CreditJulie" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Scénarios et texte :
+Julie"
+horizontal_alignment = 1
+
+[node name="CreditSimon" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Developpement :
+Simon"
+horizontal_alignment = 1
+
+[node name="CreditPierre" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Illustrations :
+Pierre"
+horizontal_alignment = 1
+
+[node name="CreditRemerciements" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Remerciements : La science entre en jeu, Pol"
+horizontal_alignment = 1
+
+[node name="ButtonClose" parent="." instance=ExtResource("1_croml")]
+layout_mode = 1
+anchor_left = 0.66
+anchor_bottom = 0.137647
+offset_bottom = 0.0
+
+[connection signal="clicked" from="ButtonClose" to="." method="_on_button_close_clicked"]

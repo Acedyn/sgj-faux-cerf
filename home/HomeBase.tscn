@@ -1,0 +1,112 @@
+[gd_scene load_steps=13 format=3 uid="uid://bq1r1jv08uekv"]
+
+[ext_resource type="Theme" uid="uid://bcxujv1cfenhm" path="res://home/HomeTheme.tres" id="1_2usom"]
+[ext_resource type="Script" uid="uid://dxftocbg6ns4o" path="res://home/HomeBase.gd" id="2_eht6y"]
+[ext_resource type="Texture2D" uid="uid://42d2377i74sy" path="res://assets/HomeBackground.png" id="2_xir6n"]
+[ext_resource type="Texture2D" uid="uid://d3wdeopxenb2l" path="res://assets/characters/Ours01.png" id="3_xctsj"]
+[ext_resource type="Texture2D" uid="uid://b5dc3v0ewfbr1" path="res://assets/HomeForeground.png" id="4_unu20"]
+[ext_resource type="Shader" uid="uid://d1bgrd3xm3k1" path="res://shaders/BlurFilter.gdshader" id="5_rgftr"]
+[ext_resource type="PackedScene" uid="uid://df6h3ruegctmm" path="res://home/MenuPage.tscn" id="6_ik2mb"]
+[ext_resource type="PackedScene" uid="uid://13rxi34hj1hn" path="res://home/CreditsPage.tscn" id="7_eht6y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4coxc"]
+shader = ExtResource("5_rgftr")
+shader_parameter/strength = 5.0
+shader_parameter/mix_percentage = 0.3
+
+[sub_resource type="Gradient" id="Gradient_0h52o"]
+offsets = PackedFloat32Array(0.012012, 0.111111, 0.237237, 0.54955, 0.798799, 1)
+colors = PackedColorArray(0, 0, 0, 0.627451, 0, 0, 0, 0.392157, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.392157, 0, 0, 0, 0.588235)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cdlky"]
+gradient = SubResource("Gradient_0h52o")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Theme" id="Theme_xir6n"]
+Label/colors/font_color = Color(0.912289, 0.912289, 0.912289, 1)
+
+[node name="HomeBase" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_2usom")
+script = ExtResource("2_eht6y")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xir6n")
+expand_mode = 3
+stretch_mode = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="CharacterImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.894488
+anchor_right = 1.89544
+anchor_bottom = 0.573478
+offset_left = -0.204956
+offset_right = -0.174072
+offset_bottom = -0.456055
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_xctsj")
+expand_mode = 3
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ForegroundImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.725
+anchor_top = 0.291
+anchor_right = 1.725
+anchor_bottom = 1.0
+offset_left = -133.0
+offset_top = -98.35
+offset_right = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_unu20")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="BlurFilter" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_4coxc")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="GradientFilter" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_cdlky")
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuPage" parent="." instance=ExtResource("6_ik2mb")]
+layout_mode = 1
+
+[node name="CreditsPage" parent="." instance=ExtResource("7_eht6y")]
+visible = false
+layout_mode = 1
+theme = SubResource("Theme_xir6n")
+
+[connection signal="credits_clicked" from="MenuPage" to="." method="_on_menu_page_credits_clicked"]
+[connection signal="close_clicked" from="CreditsPage" to="." method="_on_credits_page_close_clicked"]
