@@ -1,0 +1,154 @@
+[gd_scene load_steps=13 format=3 uid="uid://df6h3ruegctmm"]
+
+[ext_resource type="Texture2D" uid="uid://42d2377i74sy" path="res://assets/HomeBackground.png" id="1_4coxc"]
+[ext_resource type="FontFile" uid="uid://ldpluii6srv1" path="res://assets/fonts/P22Typewriter/P22 Typewriter Regular.ttf" id="1_f6b7f"]
+[ext_resource type="Texture2D" uid="uid://d3wdeopxenb2l" path="res://assets/characters/Ours01.png" id="2_v7o47"]
+[ext_resource type="Texture2D" uid="uid://b5dc3v0ewfbr1" path="res://assets/HomeForeground.png" id="3_av2c8"]
+[ext_resource type="Shader" uid="uid://d1bgrd3xm3k1" path="res://shaders/BlurFilter.gdshader" id="4_7dlac"]
+[ext_resource type="Texture2D" uid="uid://crbw6saho0gg1" path="res://assets/HomeLogo.png" id="5_v7o47"]
+[ext_resource type="PackedScene" uid="uid://bkwlwghxijyo6" path="res://ui/ButtonMedium.tscn" id="6_av2c8"]
+[ext_resource type="PackedScene" uid="uid://chmvvkkbm4thh" path="res://ui/ButtonLarge.tscn" id="7_k27su"]
+
+[sub_resource type="Theme" id="Theme_rbcel"]
+default_font = ExtResource("1_f6b7f")
+default_font_size = 22
+Label/colors/font_color = Color(0.103744, 0.103744, 0.103744, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4coxc"]
+shader = ExtResource("4_7dlac")
+shader_parameter/strength = 5.0
+shader_parameter/mix_percentage = 0.3
+
+[sub_resource type="Gradient" id="Gradient_0h52o"]
+offsets = PackedFloat32Array(0, 0.0510511, 0.237237, 0.522523, 0.717718, 1)
+colors = PackedColorArray(0, 0, 0, 0.588235, 0, 0, 0, 0.392157, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.392157, 0, 0, 0, 0.588235)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cdlky"]
+gradient = SubResource("Gradient_0h52o")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="HomeMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_rbcel")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4coxc")
+expand_mode = 3
+stretch_mode = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="CharacterImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.895
+anchor_right = 1.894
+anchor_bottom = 0.672
+offset_left = -0.204956
+offset_right = -0.174072
+offset_bottom = -0.456055
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_v7o47")
+expand_mode = 3
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ForegroundImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.725
+anchor_top = 0.291
+anchor_right = 1.725
+anchor_bottom = 1.0
+offset_left = 0.100006
+offset_top = 0.0939941
+offset_right = -0.100037
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_av2c8")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="BlurFilter" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_4coxc")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="GradientFilter" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_cdlky")
+metadata/_edit_use_anchors_ = true
+
+[node name="LogoMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.525882
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+metadata/_edit_use_anchors_ = true
+
+[node name="LogoImage" type="TextureRect" parent="LogoMargin"]
+layout_mode = 2
+texture = ExtResource("5_v7o47")
+expand_mode = 2
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayNewButton" parent="." instance=ExtResource("7_k27su")]
+layout_mode = 2
+anchors_preset = 0
+anchor_top = 0.5
+anchor_bottom = 0.653
+offset_bottom = -0.0500488
+size_flags_vertical = 3
+label_value = "Nouvelle Partie"
+
+[node name="EdutorButton" parent="." instance=ExtResource("7_k27su")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = -0.002
+anchor_top = 0.600118
+anchor_bottom = 0.768118
+offset_left = -0.2
+offset_top = -0.0999756
+offset_right = -1.0
+offset_bottom = 0.0999756
+size_flags_vertical = 3
+label_value = "Editeur de niveaux"
+
+[node name="CreditsButton" parent="." instance=ExtResource("6_av2c8")]
+layout_mode = 2
+anchors_preset = 0
+anchor_top = 0.714
+anchor_bottom = 0.875
+offset_top = 0.0999756
+offset_bottom = 0.249939
+size_flags_vertical = 3
+label_value = "Credits"

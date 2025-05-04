@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c082k5hjfg62w"]
+
+[ext_resource type="PackedScene" uid="uid://cw7hf4vmhau26" path="res://ui/ButtonBase.tscn" id="2_12mtr"]
+[ext_resource type="Texture2D" uid="uid://cimtuisu4s8oc" path="res://assets/buttons/BtnClose.png" id="2_umo3u"]
+
+[node name="ButtonSmall" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.235
+offset_bottom = 0.249985
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonBase" parent="." instance=ExtResource("2_12mtr")]
+layout_mode = 1
+anchors_preset = 15
+anchor_bottom = 1.0
+offset_bottom = 0.0
+texture_normal = ExtResource("2_umo3u")
+metadata/_edit_use_anchors_ = true

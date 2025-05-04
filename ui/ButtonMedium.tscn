@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkwlwghxijyo6"]
+
+[ext_resource type="PackedScene" uid="uid://cw7hf4vmhau26" path="res://ui/ButtonBase.tscn" id="1_q6fxq"]
+[ext_resource type="Script" uid="uid://b5am4od6wnh7e" path="res://ui/Button.gd" id="1_vrfn8"]
+
+[node name="ButtonMedium" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.235
+offset_bottom = 0.249985
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vrfn8")
+label_value = "Button Medium"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonBase" parent="." instance=ExtResource("1_q6fxq")]
+layout_mode = 1
+anchors_preset = 15
+anchor_bottom = 1.0
+offset_bottom = 0.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.17
+anchor_top = 0.32
+anchor_right = 0.83
+anchor_bottom = 0.635
+offset_right = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="MainLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Button"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

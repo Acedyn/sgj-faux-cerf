@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw7hf4vmhau26"]
+
+[ext_resource type="Texture2D" uid="uid://5pvwj7dpwifo" path="res://assets/buttons/BtnMedium.png" id="1_wn8f3"]
+
+[node name="ButtonBase" type="TextureButton"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.235
+offset_bottom = 0.249985
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_wn8f3")
+ignore_texture_size = true
+stretch_mode = 5
