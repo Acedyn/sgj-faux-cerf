@@ -15,6 +15,10 @@ run/main_scene="uid://bq1r1jv08uekv"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ScenarioStore="*res://scenarios/ScenarioStore.gd"
+
 [display]
 
 window/size/viewport_width=400

@@ -62,7 +62,7 @@ offset_top = 17.9
 offset_right = -1.0
 offset_bottom = 18.1
 size_flags_vertical = 3
-label_value = "Editeur de niveau"
+label_value = "Editeur de niveaux"
 
 [node name="CreditsButton" parent="." instance=ExtResource("6_av2c8")]
 layout_mode = 2

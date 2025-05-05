@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://drdi7qlchaock"]
+
+[ext_resource type="FontFile" uid="uid://bqguqdfdnpj0e" path="res://assets/fonts/CourierPrime/CourierPrime-Regular.ttf" id="1_54v2i"]
+[ext_resource type="Script" uid="uid://b3jvg8nnyoynl" path="res://home/CreditsPage.gd" id="1_aw4v6"]
+[ext_resource type="PackedScene" uid="uid://byoi76ap8f7xc" path="res://editor/ScenarioSelector.tscn" id="2_kbl4v"]
+[ext_resource type="PackedScene" uid="uid://c082k5hjfg62w" path="res://ui/ButtonClose.tscn" id="2_ttko1"]
+[ext_resource type="FontFile" uid="uid://bkovf8knyk8kw" path="res://assets/fonts/CourierPrime/CourierPrime-Bold.ttf" id="5_bk02t"]
+
+[sub_resource type="Theme" id="Theme_bk02t"]
+Label/fonts/font = ExtResource("1_54v2i")
+
+[node name="EditorPage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bk02t")
+script = ExtResource("1_aw4v6")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.113
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.0500031
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 0
+
+[node name="ScenarioSelector" parent="MarginContainer" instance=ExtResource("2_kbl4v")]
+layout_mode = 2
+
+[node name="ButtonClose" parent="." instance=ExtResource("2_ttko1")]
+layout_mode = 1
+anchor_left = 1.0
+anchor_bottom = 0.138
+offset_left = -136.0
+offset_bottom = -0.300011
+grow_vertical = 1
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.111
+offset_left = 4.0
+offset_top = 21.0
+offset_right = 254.0
+offset_bottom = -0.350006
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_bk02t")
+theme_override_font_sizes/font_size = 25
+text = "Selection du scenario"
+horizontal_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[connection signal="clicked" from="ButtonClose" to="." method="_on_button_close_clicked"]

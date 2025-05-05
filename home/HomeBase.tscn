@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bq1r1jv08uekv"]
+[gd_scene load_steps=14 format=3 uid="uid://bq1r1jv08uekv"]
 
 [ext_resource type="Theme" uid="uid://bcxujv1cfenhm" path="res://home/HomeTheme.tres" id="1_2usom"]
 [ext_resource type="Script" uid="uid://dxftocbg6ns4o" path="res://home/HomeBase.gd" id="2_eht6y"]
@@ -8,6 +8,7 @@
 [ext_resource type="Shader" uid="uid://d1bgrd3xm3k1" path="res://shaders/BlurFilter.gdshader" id="5_rgftr"]
 [ext_resource type="PackedScene" uid="uid://df6h3ruegctmm" path="res://home/MenuPage.tscn" id="6_ik2mb"]
 [ext_resource type="PackedScene" uid="uid://13rxi34hj1hn" path="res://home/CreditsPage.tscn" id="7_eht6y"]
+[ext_resource type="PackedScene" uid="uid://drdi7qlchaock" path="res://editor/EditorPage.tscn" id="9_xir6n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4coxc"]
 shader = ExtResource("5_rgftr")
@@ -24,7 +25,7 @@ fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
 [sub_resource type="Theme" id="Theme_xir6n"]
-Label/colors/font_color = Color(0.912289, 0.912289, 0.912289, 1)
+Label/colors/font_color = Color(0.101961, 0.101961, 0.101961, 1)
 
 [node name="HomeBase" type="Control"]
 layout_mode = 3
@@ -101,12 +102,18 @@ texture = SubResource("GradientTexture2D_cdlky")
 metadata/_edit_use_anchors_ = true
 
 [node name="MenuPage" parent="." instance=ExtResource("6_ik2mb")]
-layout_mode = 1
-
-[node name="CreditsPage" parent="." instance=ExtResource("7_eht6y")]
 visible = false
 layout_mode = 1
 theme = SubResource("Theme_xir6n")
 
+[node name="CreditsPage" parent="." instance=ExtResource("7_eht6y")]
+visible = false
+layout_mode = 1
+
+[node name="EditorPage" parent="." instance=ExtResource("9_xir6n")]
+layout_mode = 1
+
 [connection signal="credits_clicked" from="MenuPage" to="." method="_on_menu_page_credits_clicked"]
+[connection signal="editor_clicked" from="MenuPage" to="." method="_on_menu_page_editor_clicked"]
 [connection signal="close_clicked" from="CreditsPage" to="." method="_on_credits_page_close_clicked"]
+[connection signal="close_clicked" from="EditorPage" to="." method="_on_editor_page_close_clicked"]

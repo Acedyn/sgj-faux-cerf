@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://d33350s84p2jr"]
+
+[ext_resource type="Script" uid="uid://b3y0266lmbyck" path="res://editor/ScenarioEntry.gd" id="1_kt3v3"]
+
+[sub_resource type="Gradient" id="Gradient_s34mx"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.160784, 0.0823529, 0.12549, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kt3v3"]
+gradient = SubResource("Gradient_s34mx")
+width = 260
+height = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s34mx"]
+bg_color = Color(0.160784, 0.0823529, 0.12549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="ScenarioEntry" type="TextureButton"]
+anchors_preset = -1
+anchor_right = 0.65
+anchor_bottom = 0.118
+offset_bottom = -0.300011
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture_normal = SubResource("GradientTexture2D_kt3v3")
+stretch_mode = 0
+script = ExtResource("1_kt3v3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s34mx")
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonMargin" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="LabelsContainer" type="VBoxContainer" parent="Panel/ButtonMargin"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/ButtonMargin/LabelsContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Scenario Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Filler" type="Control" parent="Panel/ButtonMargin/LabelsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ButtonMargin/LabelsContainer"]
+layout_mode = 2
+
+[node name="Events" type="Label" parent="Panel/ButtonMargin/LabelsContainer/HBoxContainer"]
+layout_mode = 2
+text = "Events:"
+
+[node name="EventsCount" type="Label" parent="Panel/ButtonMargin/LabelsContainer/HBoxContainer"]
+layout_mode = 2
+text = "45"
+
+[node name="Filler" type="Control" parent="Panel/ButtonMargin/LabelsContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Author" type="Label" parent="Panel/ButtonMargin/LabelsContainer/HBoxContainer"]
+layout_mode = 2
+text = "John Doe"

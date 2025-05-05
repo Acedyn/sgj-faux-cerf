@@ -9,10 +9,9 @@ layout_mode = 3
 anchor_right = 1.0
 anchor_bottom = 0.235
 offset_bottom = 0.249985
-grow_horizontal = 2
+grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("1_33wxf")
-metadata/_edit_use_anchors_ = true
 
 [node name="ButtonBase" parent="." instance=ExtResource("2_12mtr")]
 layout_mode = 1
@@ -20,4 +19,3 @@ anchors_preset = 15
 anchor_bottom = 1.0
 offset_bottom = 0.0
 texture_normal = ExtResource("2_umo3u")
-metadata/_edit_use_anchors_ = true

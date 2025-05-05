@@ -11,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n7dap")
+metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -66,8 +67,10 @@ horizontal_alignment = 1
 
 [node name="ButtonClose" parent="." instance=ExtResource("1_croml")]
 layout_mode = 1
-anchor_left = 0.66
-anchor_bottom = 0.137647
-offset_bottom = 0.0
+anchor_left = 1.0
+anchor_bottom = 0.0
+offset_left = -136.0
+offset_bottom = 117.0
+grow_vertical = 1
 
 [connection signal="clicked" from="ButtonClose" to="." method="_on_button_close_clicked"]

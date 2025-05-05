@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Scenario" load_steps=5 format=3 uid="uid://dy10e6solbqd"]
+
+[ext_resource type="Script" uid="uid://cqnvv0rsr1b1a" path="res://scenarios/ScenarioEvent.gd" id="1_nfw35"]
+[ext_resource type="Script" uid="uid://cdvf4j4l8c7cv" path="res://scenarios/NewsEvent.gd" id="2_1puw4"]
+[ext_resource type="Script" uid="uid://b6eol4oebmlf1" path="res://scenarios/Scenario.gd" id="2_840py"]
+
+[sub_resource type="Resource" id="Resource_fohwc"]
+script = ExtResource("2_1puw4")
+title = "Bienvenue dans la foret !"
+paragraphs = Array[String](["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sagittis ipsum sem, at lacinia lectus interdum ut. Praesent accumsan enim sollicitudin urna posuere, non tempor augue dapibus. Ut et nisl porttitor, elementum neque et, volutpat arcu. In a augue vel velit feugiat vulputate. Nulla facilisi. Integer mollis tellus vel nulla.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel tortor sed turpis fermentum volutpat at quis libero. Suspendisse pellentesque nibh eget quam tempus, at cursus turpis imperdiet. Aenean laoreet lacus et massa dapibus ornare. Duis luctus luctus neque, in iaculis turpis rutrum nec. Nunc iaculis pharetra rutrum. Mauris hendrerit."])
+name = "bienvenue"
+type_name = "news"
+metadata/_custom_type_script = "uid://cdvf4j4l8c7cv"
+
+[resource]
+script = ExtResource("2_840py")
+name = "Example 01"
+author = "Simon Lambin"
+events = Array[ExtResource("1_nfw35")]([SubResource("Resource_fohwc")])
+metadata/_custom_type_script = "uid://b6eol4oebmlf1"

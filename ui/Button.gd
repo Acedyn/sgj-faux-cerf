@@ -18,7 +18,6 @@ func _ready():
 	# is meant to be used for multiple types of buttons
 	if label_node:
 		label_node.text = label_value
-	print(button_node)
 	button_node.pressed.connect(_on_button_base_pressed)
 
 func _on_button_base_pressed() -> void:
