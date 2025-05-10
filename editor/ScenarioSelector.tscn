@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://byoi76ap8f7xc"]
+[gd_scene load_steps=7 format=3 uid="uid://byoi76ap8f7xc"]
 
 [ext_resource type="Script" uid="uid://b3s0rpuabg6wi" path="res://editor/ScenarioSelector.gd" id="1_esqki"]
-[ext_resource type="Shader" uid="uid://d1bgrd3xm3k1" path="res://shaders/BlurFilter.gdshader" id="2_esqki"]
+[ext_resource type="Script" uid="uid://d182h4pedqaha" path="res://editor/NewScenarioDropdown.gd" id="2_r04us"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qqj1"]
 bg_color = Color(0.25, 0.22, 0.222, 1)
@@ -10,10 +10,32 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_r04us"]
-shader = ExtResource("2_esqki")
-shader_parameter/strength = 19.241
-shader_parameter/mix_percentage = 0.3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esqki"]
+bg_color = Color(0.160784, 0.0823529, 0.12549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r04us"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.25, 0.22, 0.222, 1)
+border_width_bottom = 3
+border_color = Color(0.0768359, 0.0768358, 0.0768357, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uryc2"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.25, 0.22, 0.222, 1)
+border_width_bottom = 3
+border_color = Color(0.0768359, 0.0768358, 0.0768357, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="ScenarioSelector" type="Control"]
 layout_mode = 3
@@ -47,85 +69,87 @@ anchors_preset = -1
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 5.0
 offset_top = -93.0
+offset_right = -5.0
 offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_3qqj1")
 text = "Nouveau Scenario"
 
-[node name="TextureRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 322.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect" type="ColorRect" parent="TextureRect"]
-material = SubResource("ShaderMaterial_r04us")
+[node name="NewScenarioDropdown" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_top = -0.605
+anchor_top = 0.495
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -228.0
-offset_top = -360.56
-offset_right = 196.0
-offset_bottom = 340.0
+offset_top = 0.249969
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_esqki")
+script = ExtResource("2_r04us")
 
-[node name="NewScenarioPanel" type="Panel" parent="TextureRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0275
-anchor_top = 0.0227273
-anchor_right = 0.9725
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_3qqj1")
-metadata/_edit_use_anchors_ = true
-
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect/NewScenarioPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="NewScenarioDropdown"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 metadata/_edit_use_anchors_ = true
 
-[node name="FlowContainer" type="VFlowContainer" parent="TextureRect/NewScenarioPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="NewScenarioDropdown/MarginContainer"]
 layout_mode = 2
 
-[node name="ScenarioNameInput" type="VBoxContainer" parent="TextureRect/NewScenarioPanel/MarginContainer/FlowContainer"]
+[node name="CloseScenarioButton" type="Button" parent="NewScenarioDropdown/MarginContainer/VBoxContainer"]
 layout_mode = 2
-metadata/_edit_use_anchors_ = true
+size_flags_horizontal = 8
+size_flags_stretch_ratio = 0.4
+theme_override_styles/normal = SubResource("StyleBoxFlat_3qqj1")
+text = "  X  "
 
-[node name="Label" type="Label" parent="TextureRect/NewScenarioPanel/MarginContainer/FlowContainer/ScenarioNameInput"]
-layout_mode = 2
-text = "Nom du scenario"
-
-[node name="LineEdit" type="LineEdit" parent="TextureRect/NewScenarioPanel/MarginContainer/FlowContainer/ScenarioNameInput"]
-layout_mode = 2
-
-[node name="ScenarioAuthor" type="VBoxContainer" parent="TextureRect/NewScenarioPanel/MarginContainer/FlowContainer"]
+[node name="ScenarioNameInput" type="VBoxContainer" parent="NewScenarioDropdown/MarginContainer/VBoxContainer"]
 layout_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="TextureRect/NewScenarioPanel/MarginContainer/FlowContainer/ScenarioAuthor"]
+[node name="Label" type="Label" parent="NewScenarioDropdown/MarginContainer/VBoxContainer/ScenarioNameInput"]
+layout_mode = 2
+text = "Nom du scénario"
+
+[node name="LineEdit" type="LineEdit" parent="NewScenarioDropdown/MarginContainer/VBoxContainer/ScenarioNameInput"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_r04us")
+placeholder_text = "Untitled"
+
+[node name="ScenarioAuthor" type="VBoxContainer" parent="NewScenarioDropdown/MarginContainer/VBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="NewScenarioDropdown/MarginContainer/VBoxContainer/ScenarioAuthor"]
 layout_mode = 2
 text = "Auteur"
 
-[node name="LineEdit" type="LineEdit" parent="TextureRect/NewScenarioPanel/MarginContainer/FlowContainer/ScenarioAuthor"]
+[node name="LineEdit" type="LineEdit" parent="NewScenarioDropdown/MarginContainer/VBoxContainer/ScenarioAuthor"]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_uryc2")
+placeholder_text = "Unknown"
+
+[node name="Filler" type="Control" parent="NewScenarioDropdown/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConfirmScenarioButton" type="Button" parent="NewScenarioDropdown/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_3qqj1")
+text = "Créer le Scénario"
 
 [connection signal="pressed" from="NewScenarioButton" to="." method="_on_new_scenario_pressed"]
+[connection signal="pressed" from="NewScenarioDropdown/MarginContainer/VBoxContainer/CloseScenarioButton" to="NewScenarioDropdown" method="_on_close_scenario_button_pressed"]
+[connection signal="pressed" from="NewScenarioDropdown/MarginContainer/VBoxContainer/ConfirmScenarioButton" to="NewScenarioDropdown" method="_on_confirm_scenario_button_pressed"]

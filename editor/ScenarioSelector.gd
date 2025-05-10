@@ -2,8 +2,13 @@ extends Control
 
 var scenario_entry_scene = preload("res://editor/ScenarioEntry.tscn")
 @onready var scenario_container = $ScenariosScroll/ScenarioContainer
+@onready var scenario_dropdown = $NewScenarioDropdown
+var scenario_dropdown_initial_position = Vector2.ZERO
 
 func _ready() -> void:
+	# Make sure the new scenario drop down of off by default
+	scenario_dropdown.visible = false
+	scenario_dropdown_initial_position = scenario_dropdown.position
 	load_scenario_entries()
 	ScenarioStore.scenarios_updated.connect(load_scenario_entries)
 	
@@ -20,4 +25,15 @@ func load_scenario_entries():
 		scenario_container.add_child(scenario_entry)
 
 func _on_new_scenario_pressed() -> void:
-	pass # Replace with function body.
+	scenario_dropdown.position.y = self.size.y
+	scenario_dropdown.visible = true
+	var scenario_dropdown_tween = get_tree().create_tween()
+	var property_tweener = scenario_dropdown_tween.tween_property(
+		scenario_dropdown,
+		"position",
+		scenario_dropdown_initial_position,
+		0.2
+	)
+	property_tweener.set_trans(Tween.TRANS_QUINT)
+	property_tweener.set_ease(Tween.EASE_OUT)
+	await property_tweener.finished
