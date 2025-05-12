@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://d33350s84p2jr"]
+[gd_scene load_steps=2 format=3 uid="uid://bll0kgxko1f7l"]
 
-[ext_resource type="Script" uid="uid://b3y0266lmbyck" path="res://editor/ScenarioEntry.gd" id="1_kt3v3"]
+[ext_resource type="Script" uid="uid://c32k8itq7oqvr" path="res://editor/EventEntry.gd" id="1_51t6p"]
 
 [node name="ScenarioEntry" type="Button"]
 custom_minimum_size = Vector2(260, 100)
@@ -11,7 +11,7 @@ offset_bottom = -0.300003
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-script = ExtResource("1_kt3v3")
+script = ExtResource("1_51t6p")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="."]
@@ -40,10 +40,22 @@ metadata/_edit_use_anchors_ = true
 [node name="LabelsContainer" type="VBoxContainer" parent="Panel/ButtonMargin"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Panel/ButtonMargin/LabelsContainer"]
+[node name="TitleContainer" type="HBoxContainer" parent="Panel/ButtonMargin/LabelsContainer"]
+layout_mode = 2
+
+[node name="Index" type="Label" parent="Panel/ButtonMargin/LabelsContainer/TitleContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Scenario Title"
+text = "1."
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="Panel/ButtonMargin/LabelsContainer/TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+text = "Event Title"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -51,24 +63,30 @@ metadata/_edit_use_anchors_ = true
 [node name="Filler" type="Control" parent="Panel/ButtonMargin/LabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/ButtonMargin/LabelsContainer"]
 layout_mode = 2
 
-[node name="Events" type="Label" parent="Panel/ButtonMargin/LabelsContainer/HBoxContainer"]
-layout_mode = 2
-text = "Events:"
-
-[node name="EventsCount" type="Label" parent="Panel/ButtonMargin/LabelsContainer/HBoxContainer"]
-layout_mode = 2
-text = "45"
-
-[node name="Filler" type="Control" parent="Panel/ButtonMargin/LabelsContainer/HBoxContainer"]
+[node name="EventTypeLabel" type="Label" parent="Panel/ButtonMargin/LabelsContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-mouse_filter = 1
+size_flags_vertical = 1
+text = "Event Type"
+horizontal_alignment = 1
 
-[node name="Author" type="Label" parent="Panel/ButtonMargin/LabelsContainer/HBoxContainer"]
-layout_mode = 2
-text = "John Doe"
+[node name="AddButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = 9.00001
+offset_right = 17.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "+"
+
+[connection signal="pressed" from="AddButton" to="." method="_on_add_button_pressed"]

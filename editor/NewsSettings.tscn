@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3lsrsu32igoo"]
+
+[ext_resource type="Script" uid="uid://dcisjacwe1o7w" path="res://editor/NewsSettings.gd" id="1_suixm"]
+
+[node name="NewsSettings" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_suixm")
+metadata/_edit_use_anchors_ = true
+
+[node name="NewsSettingsContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NewsSettingsContainer"]
+layout_mode = 2
+text = "News"
+horizontal_alignment = 1
+
+[node name="NewsTitleContainer" type="HBoxContainer" parent="NewsSettingsContainer"]
+layout_mode = 2
+
+[node name="NewsTitleInput" type="VBoxContainer" parent="NewsSettingsContainer/NewsTitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="NewsSettingsContainer/NewsTitleContainer/NewsTitleInput"]
+layout_mode = 2
+text = "Titre de la news"
+
+[node name="LineEdit" type="LineEdit" parent="NewsSettingsContainer/NewsTitleContainer/NewsTitleInput"]
+layout_mode = 2
+placeholder_text = "Untitled"
+
+[node name="NewsParagraphsContainer" type="HBoxContainer" parent="NewsSettingsContainer"]
+layout_mode = 2
+
+[node name="NewsParagraphsInput" type="VBoxContainer" parent="NewsSettingsContainer/NewsParagraphsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="NewsSettingsContainer/NewsParagraphsContainer/NewsParagraphsInput"]
+layout_mode = 2
+text = "Paragraphes"
+
+[node name="TextEdit" type="TextEdit" parent="NewsSettingsContainer/NewsParagraphsContainer/NewsParagraphsInput"]
+layout_mode = 2
+placeholder_text = "Entrez le contenu de la news.
+
+Séparé par des retours a la ligne."
+scroll_fit_content_height = true

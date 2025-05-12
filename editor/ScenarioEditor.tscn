@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi3iyijyfhwc2"]
+
+[ext_resource type="Script" uid="uid://pdmnwyhei33m" path="res://editor/ScenarioEditor.gd" id="1_jlelg"]
+[ext_resource type="PackedScene" uid="uid://chqprfc02sg7i" path="res://editor/EventDropdown.tscn" id="2_reo8e"]
+
+[node name="ScenarioEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jlelg")
+
+[node name="AddButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -17.0
+offset_right = 17.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "+"
+
+[node name="EventsScroll" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EventsContainer" type="VBoxContainer" parent="EventsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 40
+
+[node name="EventDropdown" parent="." instance=ExtResource("2_reo8e")]
+layout_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="AddButton" to="." method="_on_add_button_pressed"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://v3hxayw4dbf0"]
+
+[ext_resource type="Script" uid="uid://dttoof64yv3rt" path="res://editor/DefaultSettings.gd" id="1_eetsj"]
+
+[node name="DefaultSettings" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_eetsj")
+metadata/_edit_use_anchors_ = true
+
+[node name="DefaultSettingsContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DefaultSettingsContainer"]
+layout_mode = 2
+text = "Default"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DefaultSettingsContainer"]
+layout_mode = 2
+text = "Veuillez selectionner un type d'évenement pour faire apparaitre les options associées"
+fit_content = true
+horizontal_alignment = 1

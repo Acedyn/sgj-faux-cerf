@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3 uid="uid://chqprfc02sg7i"]
+
+[ext_resource type="Script" uid="uid://bkvelawqip3bd" path="res://editor/EventDropdown.gd" id="1_iibj4"]
+[ext_resource type="PackedScene" uid="uid://v3hxayw4dbf0" path="res://editor/DefaultSettings.tscn" id="2_258um"]
+[ext_resource type="PackedScene" uid="uid://d3lsrsu32igoo" path="res://editor/NewsSettings.tscn" id="2_o3lnr"]
+[ext_resource type="PackedScene" uid="uid://d3ds3tsv5door" path="res://editor/ClientSettings.tscn" id="4_258um"]
+
+[node name="EventDropdown" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iibj4")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="CloseEventButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_stretch_ratio = 0.4
+text = "  X  "
+
+[node name="EventNameContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="EventNameInput" type="VBoxContainer" parent="MarginContainer/VBoxContainer/EventNameContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/EventNameContainer/EventNameInput"]
+layout_mode = 2
+text = "Nom de l'évenement"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/EventNameContainer/EventNameInput"]
+layout_mode = 2
+placeholder_text = "Untitled"
+
+[node name="EventIndexInput" type="SpinBox" parent="MarginContainer/VBoxContainer/EventNameContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+allow_greater = true
+allow_lesser = true
+
+[node name="EventTypeContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/EventTypeContainer"]
+layout_mode = 2
+text = "Type d'évenement"
+
+[node name="EventTypeOption" type="OptionButton" parent="MarginContainer/VBoxContainer/EventTypeContainer"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "news"
+popup/item_0/id = 0
+popup/item_1/text = "client"
+popup/item_1/id = 1
+
+[node name="DefaultSettings" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_258um")]
+layout_mode = 2
+
+[node name="NewsSettings" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_o3lnr")]
+layout_mode = 2
+
+[node name="ClientSettings" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_258um")]
+layout_mode = 2
+
+[node name="Filler" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConfirmEventButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Inserer l'évenement"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CloseEventButton" to="." method="_on_close_event_button_pressed"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/EventTypeContainer/EventTypeOption" to="." method="_on_event_type_option_item_selected"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ConfirmEventButton" to="." method="_on_confirm_event_button_pressed"]

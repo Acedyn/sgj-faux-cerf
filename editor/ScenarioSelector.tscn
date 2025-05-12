@@ -1,37 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://byoi76ap8f7xc"]
+[gd_scene load_steps=4 format=3 uid="uid://byoi76ap8f7xc"]
 
 [ext_resource type="Script" uid="uid://b3s0rpuabg6wi" path="res://editor/ScenarioSelector.gd" id="1_esqki"]
 [ext_resource type="Script" uid="uid://d182h4pedqaha" path="res://editor/NewScenarioDropdown.gd" id="2_r04us"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qqj1"]
 bg_color = Color(0.25, 0.22, 0.222, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esqki"]
-bg_color = Color(0.160784, 0.0823529, 0.12549, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r04us"]
-content_margin_left = 5.0
-content_margin_right = 5.0
-bg_color = Color(0.25, 0.22, 0.222, 1)
-border_width_bottom = 3
-border_color = Color(0.0768359, 0.0768358, 0.0768357, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uryc2"]
-content_margin_left = 5.0
-content_margin_right = 5.0
-bg_color = Color(0.25, 0.22, 0.222, 1)
-border_width_bottom = 3
-border_color = Color(0.0768359, 0.0768358, 0.0768357, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -54,7 +27,6 @@ anchor_right = 1.0
 anchor_bottom = 0.905882
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="ScenarioContainer" type="HFlowContainer" parent="ScenariosScroll"]
 layout_mode = 2
@@ -75,11 +47,9 @@ offset_right = -5.0
 offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_3qqj1")
 text = "Nouveau Scenario"
 
 [node name="NewScenarioDropdown" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.495
@@ -88,7 +58,6 @@ anchor_bottom = 1.0
 offset_top = 0.249969
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_esqki")
 script = ExtResource("2_r04us")
 
 [node name="MarginContainer" type="MarginContainer" parent="NewScenarioDropdown"]
@@ -111,7 +80,6 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_stretch_ratio = 0.4
-theme_override_styles/normal = SubResource("StyleBoxFlat_3qqj1")
 text = "  X  "
 
 [node name="ScenarioNameInput" type="VBoxContainer" parent="NewScenarioDropdown/MarginContainer/VBoxContainer"]
@@ -124,7 +92,6 @@ text = "Nom du scénario"
 
 [node name="LineEdit" type="LineEdit" parent="NewScenarioDropdown/MarginContainer/VBoxContainer/ScenarioNameInput"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_r04us")
 placeholder_text = "Untitled"
 
 [node name="ScenarioAuthor" type="VBoxContainer" parent="NewScenarioDropdown/MarginContainer/VBoxContainer"]
@@ -137,7 +104,6 @@ text = "Auteur"
 
 [node name="LineEdit" type="LineEdit" parent="NewScenarioDropdown/MarginContainer/VBoxContainer/ScenarioAuthor"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_uryc2")
 placeholder_text = "Unknown"
 
 [node name="Filler" type="Control" parent="NewScenarioDropdown/MarginContainer/VBoxContainer"]

@@ -1,0 +1,90 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3ds3tsv5door"]
+
+[ext_resource type="Script" uid="uid://1kgw2v1dsf1w" path="res://editor/ClientSettingsd.gd" id="1_bheaq"]
+
+[node name="ClientSettings" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_bheaq")
+metadata/_edit_use_anchors_ = true
+
+[node name="ClientSettingsContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ClientSettingsContainer"]
+layout_mode = 2
+text = "Client"
+horizontal_alignment = 1
+
+[node name="ClientTitleContainer" type="HBoxContainer" parent="ClientSettingsContainer"]
+layout_mode = 2
+
+[node name="ClientTitleInput" type="VBoxContainer" parent="ClientSettingsContainer/ClientTitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ClientSettingsContainer/ClientTitleContainer/ClientTitleInput"]
+layout_mode = 2
+text = "Nom du client"
+
+[node name="LineEdit" type="LineEdit" parent="ClientSettingsContainer/ClientTitleContainer/ClientTitleInput"]
+layout_mode = 2
+placeholder_text = "Untitled"
+
+[node name="ClientImageInput" type="VBoxContainer" parent="ClientSettingsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ClientSettingsContainer/ClientImageInput"]
+layout_mode = 2
+text = "Image du client"
+
+[node name="Option" type="OptionButton" parent="ClientSettingsContainer/ClientImageInput"]
+layout_mode = 2
+item_count = 10
+popup/item_0/text = "canard.png"
+popup/item_0/id = 0
+popup/item_1/text = "chat.png"
+popup/item_1/id = 1
+popup/item_2/text = "chien.png"
+popup/item_2/id = 2
+popup/item_3/text = "corbeau.png"
+popup/item_3/id = 3
+popup/item_4/text = "grenouille.png"
+popup/item_4/id = 4
+popup/item_5/text = "herisson.png"
+popup/item_5/id = 5
+popup/item_6/text = "lion.png"
+popup/item_6/id = 6
+popup/item_7/text = "loup.png"
+popup/item_7/id = 7
+popup/item_8/text = "ours.png"
+popup/item_8/id = 8
+popup/item_9/text = "renard.png"
+popup/item_9/id = 9
+
+[node name="ClientParagraphsContainer" type="HBoxContainer" parent="ClientSettingsContainer"]
+layout_mode = 2
+
+[node name="ClientParagraphsInput" type="VBoxContainer" parent="ClientSettingsContainer/ClientParagraphsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ClientSettingsContainer/ClientParagraphsContainer/ClientParagraphsInput"]
+layout_mode = 2
+text = "Paragraphes"
+
+[node name="TextEdit" type="TextEdit" parent="ClientSettingsContainer/ClientParagraphsContainer/ClientParagraphsInput"]
+layout_mode = 2
+placeholder_text = "Entrez le texte du client
+
+Séparé par des retours a la ligne."
+scroll_fit_content_height = true

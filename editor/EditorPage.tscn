@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://drdi7qlchaock"]
+[gd_scene load_steps=8 format=3 uid="uid://drdi7qlchaock"]
 
 [ext_resource type="FontFile" uid="uid://bqguqdfdnpj0e" path="res://assets/fonts/CourierPrime/CourierPrime-Regular.ttf" id="1_54v2i"]
-[ext_resource type="Script" uid="uid://b3jvg8nnyoynl" path="res://home/CreditsPage.gd" id="1_aw4v6"]
+[ext_resource type="Script" uid="uid://dxw4u5p5cykul" path="res://editor/EditorPage.gd" id="2_1brpx"]
 [ext_resource type="PackedScene" uid="uid://byoi76ap8f7xc" path="res://editor/ScenarioSelector.tscn" id="2_kbl4v"]
 [ext_resource type="PackedScene" uid="uid://c082k5hjfg62w" path="res://ui/ButtonClose.tscn" id="2_ttko1"]
+[ext_resource type="PackedScene" uid="uid://bi3iyijyfhwc2" path="res://editor/ScenarioEditor.tscn" id="4_1brpx"]
 [ext_resource type="FontFile" uid="uid://bkovf8knyk8kw" path="res://assets/fonts/CourierPrime/CourierPrime-Bold.ttf" id="5_bk02t"]
 
 [sub_resource type="Theme" id="Theme_bk02t"]
@@ -17,7 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_bk02t")
-script = ExtResource("1_aw4v6")
+script = ExtResource("2_1brpx")
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -37,6 +38,10 @@ theme_override_constants/margin_bottom = 0
 [node name="ScenarioSelector" parent="MarginContainer" instance=ExtResource("2_kbl4v")]
 layout_mode = 2
 
+[node name="ScenarioEditor" parent="MarginContainer" instance=ExtResource("4_1brpx")]
+visible = false
+layout_mode = 2
+
 [node name="ButtonClose" parent="." instance=ExtResource("2_ttko1")]
 layout_mode = 1
 anchor_left = 1.0
@@ -48,18 +53,35 @@ grow_vertical = 1
 [node name="TitleLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_bottom = 0.111
-offset_left = 4.0
+anchor_bottom = 0.101588
+offset_left = 56.0
 offset_top = 21.0
-offset_right = 254.0
+offset_right = 260.0
 offset_bottom = -0.350006
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("5_bk02t")
 theme_override_font_sizes/font_size = 25
 text = "Selection du scenario"
-horizontal_alignment = 1
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.0980588
+offset_left = 10.0
+offset_top = 21.0
+offset_right = 42.0
+offset_bottom = -0.350006
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_bk02t")
+theme_override_font_sizes/font_size = 25
+text = "<"
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[connection signal="edit_scenario" from="MarginContainer/ScenarioSelector" to="." method="_on_scenario_selector_edit_scenario"]
 [connection signal="clicked" from="ButtonClose" to="." method="_on_button_close_clicked"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
