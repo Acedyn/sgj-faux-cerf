@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bq1r1jv08uekv"]
+[gd_scene load_steps=15 format=3 uid="uid://bq1r1jv08uekv"]
 
 [ext_resource type="Theme" uid="uid://bcxujv1cfenhm" path="res://home/HomeTheme.tres" id="1_2usom"]
 [ext_resource type="Script" uid="uid://dxftocbg6ns4o" path="res://home/HomeBase.gd" id="2_eht6y"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://df6h3ruegctmm" path="res://home/MenuPage.tscn" id="6_ik2mb"]
 [ext_resource type="PackedScene" uid="uid://13rxi34hj1hn" path="res://home/CreditsPage.tscn" id="7_eht6y"]
 [ext_resource type="PackedScene" uid="uid://drdi7qlchaock" path="res://editor/EditorPage.tscn" id="9_xir6n"]
+[ext_resource type="PackedScene" uid="uid://bfaop8rf5qwhb" path="res://game/GamePage.tscn" id="10_xctsj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4coxc"]
 shader = ExtResource("5_rgftr")
@@ -47,7 +48,6 @@ grow_vertical = 2
 texture = ExtResource("2_xir6n")
 expand_mode = 3
 stretch_mode = 6
-metadata/_edit_use_anchors_ = true
 
 [node name="CharacterImage" type="TextureRect" parent="."]
 layout_mode = 1
@@ -63,7 +63,6 @@ grow_vertical = 2
 texture = ExtResource("3_xctsj")
 expand_mode = 3
 stretch_mode = 5
-metadata/_edit_use_anchors_ = true
 
 [node name="ForegroundImage" type="TextureRect" parent="."]
 layout_mode = 1
@@ -111,9 +110,15 @@ visible = false
 layout_mode = 1
 
 [node name="EditorPage" parent="." instance=ExtResource("9_xir6n")]
+visible = false
+layout_mode = 1
+
+[node name="GamePage" parent="." instance=ExtResource("10_xctsj")]
 layout_mode = 1
 
 [connection signal="credits_clicked" from="MenuPage" to="." method="_on_menu_page_credits_clicked"]
 [connection signal="editor_clicked" from="MenuPage" to="." method="_on_menu_page_editor_clicked"]
+[connection signal="play_new_clicked" from="MenuPage" to="." method="_on_menu_page_play_new_clicked"]
 [connection signal="close_clicked" from="CreditsPage" to="." method="_on_credits_page_close_clicked"]
 [connection signal="close_clicked" from="EditorPage" to="." method="_on_editor_page_close_clicked"]
+[connection signal="close_clicked" from="GamePage" to="." method="_on_game_page_close_clicked"]

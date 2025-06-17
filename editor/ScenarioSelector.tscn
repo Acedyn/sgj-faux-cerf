@@ -50,6 +50,7 @@ grow_vertical = 2
 text = "Nouveau Scenario"
 
 [node name="NewScenarioDropdown" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.495

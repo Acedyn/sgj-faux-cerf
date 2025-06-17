@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfaop8rf5qwhb"]
+
+[ext_resource type="Script" uid="uid://dd4dryg55ah4u" path="res://game/GamePage.gd" id="1_0y7hk"]
+[ext_resource type="PackedScene" uid="uid://byoi76ap8f7xc" path="res://editor/ScenarioSelector.tscn" id="1_18ad5"]
+[ext_resource type="PackedScene" uid="uid://bw7m6ibu7r10" path="res://game/ScenarioPlayer.tscn" id="2_xnug6"]
+[ext_resource type="PackedScene" uid="uid://c082k5hjfg62w" path="res://ui/ButtonClose.tscn" id="3_xnug6"]
+[ext_resource type="FontFile" uid="uid://bkovf8knyk8kw" path="res://assets/fonts/CourierPrime/CourierPrime-Bold.ttf" id="4_xkd2v"]
+
+[node name="GamePage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0y7hk")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScenarioPlayer" parent="MarginContainer" instance=ExtResource("2_xnug6")]
+layout_mode = 2
+
+[node name="ScenarioSelector" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ScenarioSelector" parent="MarginContainer/ScenarioSelector" instance=ExtResource("1_18ad5")]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 15.0
+offset_top = 117.0
+offset_right = -15.0
+offset_bottom = -17.0
+show_new_scenario_button = false
+
+[node name="ButtonClose" parent="MarginContainer/ScenarioSelector" instance=ExtResource("3_xnug6")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 264.0
+offset_right = 400.0
+offset_bottom = 117.0
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/ScenarioSelector"]
+layout_mode = 2
+offset_left = 17.0
+offset_top = 21.0
+offset_right = 221.0
+offset_bottom = 85.9998
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_xkd2v")
+theme_override_font_sizes/font_size = 25
+text = "Selection du scenario"
+autowrap_mode = 2
+
+[connection signal="edit_scenario" from="MarginContainer/ScenarioSelector/ScenarioSelector" to="." method="_on_scenario_selector_edit_scenario"]
+[connection signal="clicked" from="MarginContainer/ScenarioSelector/ButtonClose" to="." method="_on_button_close_clicked"]

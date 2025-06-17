@@ -1,0 +1,136 @@
+[gd_scene load_steps=10 format=3 uid="uid://bw7m6ibu7r10"]
+
+[ext_resource type="Script" uid="uid://cwi28lm0youat" path="res://game/ScenarioPlayer.gd" id="1_kb06j"]
+[ext_resource type="FontFile" uid="uid://ldpluii6srv1" path="res://assets/fonts/P22Typewriter/P22 Typewriter Regular.ttf" id="1_ti47v"]
+[ext_resource type="Texture2D" uid="uid://d3wdeopxenb2l" path="res://assets/characters/Ours01.png" id="2_llahv"]
+[ext_resource type="PackedScene" uid="uid://bg2ixmh8ytlqo" path="res://game/NewsTexture.tscn" id="2_oabb7"]
+[ext_resource type="Texture2D" uid="uid://c1vqu1skp76c4" path="res://assets/ClientBubble.png" id="3_ti47v"]
+[ext_resource type="Texture2D" uid="uid://bl56b755xpeyg" path="res://assets/ClientId.png" id="4_33pam"]
+[ext_resource type="PackedScene" uid="uid://chmvvkkbm4thh" path="res://ui/ButtonLarge.tscn" id="7_33pam"]
+[ext_resource type="Texture2D" uid="uid://b5dc3v0ewfbr1" path="res://assets/HomeForeground.png" id="7_jmiwo"]
+
+[sub_resource type="Theme" id="Theme_rbcel"]
+default_font = ExtResource("1_ti47v")
+default_font_size = 22
+Label/colors/font_color = Color(0.103744, 0.103744, 0.103744, 1)
+
+[node name="ScenarioPlayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_rbcel")
+script = ExtResource("1_kb06j")
+
+[node name="ClientContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ClientTexture" type="TextureRect" parent="ClientContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.894488
+anchor_right = 1.89544
+anchor_bottom = 0.573478
+offset_left = 1.7952
+offset_top = 124.0
+offset_right = 1.82611
+offset_bottom = 123.544
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_llahv")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ClientBubble" type="TextureRect" parent="ClientContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = -25.0
+offset_top = 23.0
+offset_right = 9.99997
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ti47v")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ClientId" type="TextureRect" parent="ClientContainer"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.565
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -0.25
+offset_right = 9.99997
+offset_bottom = -156.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_33pam")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ContinueClientButton" parent="ClientContainer" instance=ExtResource("7_33pam")]
+z_index = 1
+layout_mode = 1
+offset_top = 701.0
+offset_bottom = 701.25
+label_value = "Continue"
+
+[node name="NewsContainer" type="Control" parent="."]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="NewsBackdrop" type="ColorRect" parent="NewsContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+metadata/_edit_use_anchors_ = true
+
+[node name="NewsTexture" parent="NewsContainer" instance=ExtResource("2_oabb7")]
+layout_mode = 1
+offset_right = -54.0
+offset_bottom = -84.0
+
+[node name="ContinueNewsButton" parent="NewsContainer" instance=ExtResource("7_33pam")]
+layout_mode = 1
+offset_top = 701.0
+offset_bottom = 701.25
+label_value = "Continue"
+
+[node name="ForegroundImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.725
+anchor_top = 0.291
+anchor_right = 1.725
+anchor_bottom = 1.0
+offset_left = -133.111
+offset_top = 21.65
+offset_right = 133.111
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_jmiwo")
+expand_mode = 3
+stretch_mode = 5

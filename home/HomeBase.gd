@@ -3,6 +3,7 @@ extends Control
 @onready var menu_page_node: Control = $MenuPage
 @onready var editor_page_node: Control = $EditorPage
 @onready var credits_page_node: Control = $CreditsPage
+@onready var game_page_node: Control = $GamePage
 
 var current_page_node: Control
 
@@ -11,6 +12,7 @@ func _ready() -> void:
 	menu_page_node.visible = false
 	editor_page_node.visible = false
 	credits_page_node.visible = false
+	game_page_node.visible = false
 	
 	# The default page is the menu
 	show_menu_page()
@@ -57,15 +59,28 @@ func show_credits_page():
 		hide_page(current_page_node)
 	show_page(credits_page_node)
 	current_page_node = credits_page_node
+
+func show_game_page():
+	# Replace the current page with the game page
+	if current_page_node:
+		hide_page(current_page_node)
+	show_page(game_page_node)
+	current_page_node = game_page_node
 	
 func _on_menu_page_editor_clicked() -> void:
 	show_editor_page()
 
 func _on_menu_page_credits_clicked() -> void:
 	show_credits_page()
+	
+func _on_menu_page_play_new_clicked():
+	show_game_page()
 
 func _on_credits_page_close_clicked() -> void:
 	show_menu_page()
 
 func _on_editor_page_close_clicked() -> void:
+	show_menu_page()
+
+func _on_game_page_close_clicked() -> void:
 	show_menu_page()

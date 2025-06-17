@@ -1,0 +1,147 @@
+[gd_scene load_steps=10 format=3 uid="uid://bg2ixmh8ytlqo"]
+
+[ext_resource type="Theme" uid="uid://bcxujv1cfenhm" path="res://home/HomeTheme.tres" id="1_tarae"]
+[ext_resource type="Texture2D" uid="uid://be0l7ryjk8dp7" path="res://assets/NewsBackground.png" id="2_jc3wi"]
+[ext_resource type="Script" uid="uid://bf6nj62g7txso" path="res://game/NewsTexture.gd" id="3_4rit4"]
+[ext_resource type="FontFile" uid="uid://u8bj28g8a1nx" path="res://assets/fonts/Verdana/Verdana-Bold.ttf" id="4_uwxqa"]
+[ext_resource type="FontFile" uid="uid://bqguqdfdnpj0e" path="res://assets/fonts/CourierPrime/CourierPrime-Regular.ttf" id="5_jc3wi"]
+
+[sub_resource type="Animation" id="Animation_tarae"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.1, 0.1),
+"update": 0,
+"values": [Vector2(0, 400), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.1, 0.1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jc3wi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4rit4"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.1, 0.1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.1, 0.1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uwxqa"]
+_data = {
+&"RESET": SubResource("Animation_jc3wi"),
+&"hide": SubResource("Animation_4rit4"),
+&"show": SubResource("Animation_tarae")
+}
+
+[node name="NewsTexture" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tarae")
+texture = ExtResource("2_jc3wi")
+expand_mode = 5
+stretch_mode = 5
+script = ExtResource("3_4rit4")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.342
+anchor_right = 1.0
+anchor_bottom = 0.658
+offset_left = 36.0
+offset_top = -6.8
+offset_right = -13.0
+offset_bottom = -108.2
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.183591, 0.18359, 0.18359, 1)
+theme_override_fonts/font = ExtResource("4_uwxqa")
+theme_override_font_sizes/font_size = 18
+text = "Hello"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Parahraph" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.345
+anchor_right = 1.0
+anchor_bottom = 0.658
+offset_left = 188.0
+offset_top = 72.75
+offset_right = -3.0
+offset_bottom = -105.3
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.219501, 0.219501, 0.219501, 1)
+theme_override_fonts/normal_font = ExtResource("5_jc3wi")
+theme_override_font_sizes/normal_font_size = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_uwxqa")
+}

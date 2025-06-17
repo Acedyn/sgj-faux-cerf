@@ -1,9 +1,12 @@
 extends Control
 
+# TODO: Rename this signal to scenario_pressed
 signal edit_scenario(uuid: String, scenario: Scenario)
 var scenario_entry_scene = preload("res://editor/ScenarioEntry.tscn")
 @onready var scenario_container = $ScenariosScroll/ScenarioContainer
 @onready var scenario_dropdown = $NewScenarioDropdown
+@onready var new_scenario_button = $NewScenarioButton
+@export var show_new_scenario_button: bool = true
 var scenario_dropdown_initial_position = Vector2.ZERO
 
 func _ready() -> void:
@@ -12,6 +15,8 @@ func _ready() -> void:
 	scenario_dropdown_initial_position = scenario_dropdown.position
 	load_scenario_entries()
 	ScenarioStore.scenarios_updated.connect(load_scenario_entries)
+	if not show_new_scenario_button:
+		new_scenario_button.visible = false
 	
 func load_scenario_entries():
 	# Clear the existing entries
